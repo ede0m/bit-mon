@@ -62,6 +62,7 @@ class Lab_stat(object):
 			for price in self.price_list:
 				add_curr = add_curr + price[0] 
 			curr_av = (add_curr / len(self.price_list))		
+			print(curr_av)
 			delta_curr = self.price_list[(len(self.price_list)-1)][0] - self.price_list[len(self.price_list)-2][0]
 			print('----- Current Price Change: ' + str(delta_curr) + '\n')			
 			# handle price increases
@@ -82,7 +83,7 @@ class Lab_stat(object):
 			if increasing == 4 and delta_price > 20:
 				print('----- INCREASE HAS NOT STOPPED IN 10 MINUTES OR MORE -----')
 				break
-			elif increasing == -4 and delta_price < 20:
+			elif increasing == -4 and delta_price < -20:
 				print('----- DECREASE HAS NOT STOPPED IN 10 MINUTES OR MORE -----')
 				break
 		
@@ -95,16 +96,5 @@ class Lab_stat(object):
 
 
 
-	#Returns best transaction based on the current market status
-	def cross_site_analysis():
-		
-		initiate = false
-		transaction = (buying, selling)
-		return (initiate, transaction)
-
-	def profit_tracker():
-		#listtransactions coinbase API
-		pass
-
-stat = Lab_stat('BLK-CHN')
+stat = Lab_stat('COIN-BS')
 stat.BTC_watch()

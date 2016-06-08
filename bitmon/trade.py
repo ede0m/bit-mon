@@ -26,7 +26,14 @@ class Trade(object):
 	def initiate_trade():
 		##STATISTACL CONDITIONS 
 		
-		
+	
+	def cross_site_analysis(market1, market2):
+		 
+		pass
+
+	def profit_tracker():
+		#listtransactions coinbase API
+		pass		
 	#transfter BTC to potentially higher priced selling markets 
 	# prepare to buy BTC with USD from lower priced markets
 	# sell BTC and constantly move small portin of profits back to USD on low priced markets 

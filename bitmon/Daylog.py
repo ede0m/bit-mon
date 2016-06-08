@@ -3,16 +3,14 @@ import json
 from time import localtime
 import requests
 import os
-from coinbase.wallet.client import Client
 import sys
 from decimal import *
+from api_call import api_call
 
 class Daylog(object):
 
 	def __init__(self, exchange):
 		self.exchange = exchange
-		self.key = None
-		self.secret = None
 		self.d_high = 0
 		self.d_low = 0
 		#self.mx_spread = 0
@@ -38,46 +36,17 @@ class Daylog(object):
 	##########################
 	# THX COINBASE! 
 	##########################
-	def __get_data(self, exchange):
-	
-		buy = 0
-		sell = 0
-		last = 0
-	
-		if exchange == 'BLK-CHN':
-			response = requests.get('https://blockchain.info/ticker')
-			r = response.json() 	
-			last = r["USD"]["last"]
-			buy = r["USD"]["buy"]
-			sell = r["USD"]["sell"]	
-	
-		
-		elif exchange == 'COIN-BS':
-			self.key = sys.argv[1]
-			self.secret = sys.argv[2]
-			try:
-				client = Client(self.key, self.secret)
-				r = client.get_sell_price()
-				sell = r["amount"]		
-				r = client.get_buy_price()
-				buy = r["amount"]
-				r = client.get_spot_price()
-				last = r["amount"]
-			except ValueError:
-				print('\nValue Error: Request skipped\n')									
-				
-		return (Decimal(buy).quantize(Decimal('.01')), Decimal(sell).quantize(Decimal('.01')), Decimal(last).quantize(Decimal('.01')))	
+	def __get_api_data(self, exchange):			
+		api = api_call()
+		api.read_key()
+		return api.get_data(exchange)
 	
 	
 	#############################################################################################
 	# MEASURES 30 sec OF CURRENCY DATA WITH COUNT = 24 
 	#############################################################################################
-	def __snapshot(self, data, ratio):
-		
-		if not any(data):
-			print('\n\n-----SNAPSHOT ERROR---- data = none \n\n ')
-			return
-
+	def __snapshot(self, ratio):
+		data = self.__get_api_data(self.exchange)	
 		count = 0
 		curr = 0
 		sell_high = data[1]
@@ -92,7 +61,7 @@ class Daylog(object):
 		#sample most recent price 50 times within 1 minutes
 		while count <= 24:
 			#update snap vars
-			data = self.__get_data(self.exchange)
+			data = self.__get_api_data(self.exchange)
 			sell_high = data[1]
 			buy_low = data[0]
 			spread = data[1] - data[0]
@@ -154,7 +123,7 @@ class Daylog(object):
 			#SAMPLE SNAP ---- CAUSES SLOW START Possibly 			
 			time_a = time.time()
 			print('\n------------------- STARTING ENTRY SAMPLE SNAP -------------------- \n')
-			start_snap = self.__snapshot(self.__get_data(self.exchange) , adjust_ratio)
+			start_snap = self.__snapshot(adjust_ratio)
 			time_b = time.time()
 			adjust_ratio = self.adjust_server_call(time_a, time_b, adjust_ratio) ###### WILL ADJUST_RAT CHANGE BEFORE ASSIGNMENT?
 			print('\n------------------- ENDING ENTRY SAMPLE SNAP ---------------------- \n\n')
@@ -171,7 +140,7 @@ class Daylog(object):
 			#5 snapshots = 2.5 minutes = 1 entry
 			while count <= 3: 
 				time_A = time.time()  
-				snap = self.__snapshot(self.__get_data(self.exchange), adjust_ratio)
+				snap = self.__snapshot(adjust_ratio)
 				
 				if not any(snap):
 					print('\n\n-----ENTRY ERROR---- Snap returned None \n\n')
