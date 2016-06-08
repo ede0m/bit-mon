@@ -1,16 +1,11 @@
+#!/usr/bin/python3
+
 import json
-from coinbase.wallet.client import Client
+#from coinbase.wallet.client import Client
 from pprint import pprint
+from api_call import api_call
 #import Lab_stat
 
-
-#COINBASE API INSTALL
-
-client = Client(CB_key, CB_secret)
-
-user = client.get_current_user()
-#user_as_json_string = json.dumps(user)
-#pprint(user_as_json_string)
 
 class Trade(object):
 
@@ -24,12 +19,14 @@ class Trade(object):
 		return self.trade_log
 	
 	def initiate_trade():
-		##STATISTACL CONDITIONS 
-		
-	
-	def cross_site_analysis(market1, market2):
-		 
 		pass
+		
+	def cross_site_analysis(self, market1):
+		api = api_call()
+		api.read_key()
+		data = api.get_data(market1)
+		print(data)		 
+
 
 	def profit_tracker():
 		#listtransactions coinbase API
@@ -38,4 +35,11 @@ class Trade(object):
 	# prepare to buy BTC with USD from lower priced markets
 	# sell BTC and constantly move small portin of profits back to USD on low priced markets 
 	def even_funds():
-		pass							
+		pass				
+
+
+
+
+trade = Trade()
+data_test = trade.cross_site_analysis('COIN-BS')
+print(data_test)			

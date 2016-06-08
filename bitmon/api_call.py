@@ -14,6 +14,15 @@ class api_call(object):
 
 	def read_key(self):
 		where_s = os.getcwd()
+		where_s = where_s.split('/')
+		if where_s[len(where_s)-1] == 'bit-mon':
+			where_s = os.getcwd()
+	
+		elif where_s[len(where_s)-1] == 'bitmon':
+			os.chdir('..')
+			where_s = os.getcwd()
+			print(where_s)
+
 		filename = where_s + '/KEYS.txt'
 		key = ''
 		secret = ''
