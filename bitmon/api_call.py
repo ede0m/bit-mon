@@ -78,7 +78,7 @@ class api_call(object):
 				last = r["amount"]
 							
 			elif exchange == 'OKC':
-				response = requests.get('https://www.okcoin.com/api/v1/ticker.do?symbol=ltc_usd')
+				response = requests.get('https://www.okcoin.com/api/v1/ticker.do?symbol=btc_usd')
 				r = response.json()
 				last = r["ticker"]["last"]
 				buy = r["ticker"]["buy"]
