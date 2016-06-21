@@ -1,16 +1,19 @@
-#!/usr/bin/python3
+#/usr/bin/python3
 
+from pprint import pprint
 from decimal import *
 from coinbase.wallet.client import Client
 import os
 import fileinput
 import sys
 import requests
+
 class api_call(object):
 
 	def __init__(self):
 		self.CB_key = None
 		self.CB_secret = None
+		self.CB_account = '92ba669f-f124-51bb-bc31-24670e47566c'
 
 	def rk(self):
 		where_s = os.getcwd()
@@ -67,7 +70,6 @@ class api_call(object):
 				buy = r["USD"]["buy"]
 				sell = r["USD"]["sell"]	
 	
-		
 			elif exchange == 'COIN-BS':
 				client = Client(self.CB_key, self.CB_secret)
 				r = client.get_sell_price()
@@ -90,3 +92,31 @@ class api_call(object):
 				
 		return (Decimal(buy).quantize(Decimal('.01')), Decimal(sell).quantize(Decimal('.01')), Decimal(last).quantize(Decimal('.01')))	
 	
+
+
+	def buy(self, exchange, amount):
+	
+		if exchange == 'COIN-BS':
+			client = Client(self.CB_key, self.CB_secret)
+			transAX = client.get_transactions(self.CB_account)
+			pprint(transAX)
+			buy = client.buy(self.CB_account, {"amount": str(amount),		#str(amount)
+					  "currency": "USD",
+					  "payment_method": "e3ccf1ab-9930-5762-84a7-c842cba8acac"})	
+			pprint(buy)
+
+	def sell(self, exchange):
+	
+		pass
+
+	def even_funds(self, send, recv):
+		#HOLD MORE MONEY IN US DOLLARS BECAUSE SAFER! :)
+
+		pass
+
+		
+
+
+api = api_call()
+api.rk()
+api.buy('COIN-BS', 1)

@@ -12,11 +12,8 @@ class Lab_stat(object):
 	def __init__(self, exchange):
 		self.spreads = []
 		self.exchange = exchange
-<<<<<<< HEAD
 		self.last_list = []
-=======
 		self.price_list = []
->>>>>>> ad9bba9ff5abb4f1261fe839c2a6219baebba2c0
 
 	 ## NEED TO FIRGURE OUT A WAY TO RE-WRITE LOGS IN Daylog so I can continusouly update my spread_bound 
 	def __parse_logs(self):
@@ -49,11 +46,9 @@ class Lab_stat(object):
 				# THIS MAY NOT WORK.. 
 				if os.stat(filename).st_size == 0:
 					continue				
-<<<<<<< HEAD
+
 			self.last_list.append((last_dr, time_dr))
-=======
 			self.price_list.append((last_dr, time_dr))
->>>>>>> ad9bba9ff5abb4f1261fe839c2a6219baebba2c0
 			self.spreads.append((spread_dr, time_dr ))
 			count = count + 1				
 			
@@ -80,10 +75,7 @@ class Lab_stat(object):
 
 	def profit_tracker():
 		#listtransactions coinbase API
-		pass
 
-stat = Lab_stat('BLK-CHN')
-=======
 		increasing = 0
 		delta_price = 0
 		loop = 0
@@ -129,5 +121,4 @@ stat = Lab_stat('BLK-CHN')
 
 
 stat = Lab_stat('COIN-BS')
->>>>>>> ad9bba9ff5abb4f1261fe839c2a6219baebba2c0
 stat.BTC_watch()
