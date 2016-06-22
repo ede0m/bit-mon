@@ -97,12 +97,15 @@ class api_call(object):
 	def buy(self, exchange, amount):
 	
 		if exchange == 'COIN-BS':
+			
+			### THIS IS ALL FUCKED! SCREW CB ###			
+
 			client = Client(self.CB_key, self.CB_secret)
-			transAX = client.get_transactions(self.CB_account)
-			pprint(transAX)
-			buy = client.buy(self.CB_account, {"amount": str(amount),		#str(amount)
-					  "currency": "USD",
-					  "payment_method": "e3ccf1ab-9930-5762-84a7-c842cba8acac"})	
+			#transAX = client.get_transactions('92ba669f-f124-51bb-bc31-24670e47566c')
+			#pprint(transAX)
+			buy = client.buy(account_id=self.CB_account, amount=str(amount),		#str(amount)
+					  currency="USD",
+					  payment_method="e3ccf1ab-9930-5762-84a7-c842cba8acac")	
 			pprint(buy)
 
 	def sell(self, exchange):
@@ -113,10 +116,3 @@ class api_call(object):
 		#HOLD MORE MONEY IN US DOLLARS BECAUSE SAFER! :)
 
 		pass
-
-		
-
-
-api = api_call()
-api.rk()
-api.buy('COIN-BS', 1)
