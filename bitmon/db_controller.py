@@ -10,16 +10,10 @@ with open(os.path.join(os.path.dirname(__file__),"db.json"),'r') as data_file:
 		
 
 
-def newMonthLog(exchange):
+def newDateLog(exchange, log_type):
 	global db
-	monthyear = time.strftime("%m/%Y")
-	db[exchange]['logs'][monthyear] = {}
-	return monthyear
-
-def newCurrDate(exchange, monthyear, snaps_logs, currdate):
-		global db
-		db[exchange][snaps_logs][monthyear][str(currdate)] = {}
-		print(json.dumps(db, indent=4, sort_keys=True))
+	monthdayyear = time.strftime("%m/%d/%Y")
+	db[exchange][log_type][monthdayyear] = {}
 
 
 def getBLKLogs():

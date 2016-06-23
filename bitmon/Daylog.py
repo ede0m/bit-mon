@@ -54,7 +54,7 @@ class Daylog(object):
 		last = data[2]
 		total_last = last
 
-		monthyear = time.strftime("%m/%Y")
+		monthdayyear = time.strftime("%m/%d/%Y")
 
 		#sample most recent price 25 times within 1/2 minutes
 		while count <= 24:
@@ -89,14 +89,14 @@ class Daylog(object):
 			count = count + 1 		
 
 		# returns sample data from 30 sec with highest high, lowest low, and largest spread within the snapshot 		
-		if monthyear not in db[self.exchange]['snapshots']:
-			db[self.exchange]['snapshots'][monthyear] = {}
-		curr_date = time.strftime("%Y-%m-%d-%R%S", localtime())
-		db[self.exchange]['snapshots'][monthyear][curr_date] = {}
-		db[self.exchange]['snapshots'][monthyear][curr_date]['buy'] = str(mn_buy) +'--BUY\n'
-		db[self.exchange]['snapshots'][monthyear][curr_date]['sell'] = str(mx_sell) + '--SELL\n'
-		db[self.exchange]['snapshots'][monthyear][curr_date]['spread'] = str(spread) + '--SPREAD\n'
-		db[self.exchange]['snapshots'][monthyear][curr_date]['last'] = str(last) + '--LAST\n'
+		if monthdayyear not in db[self.exchange]['snapshots']:
+			newDateLog(self.exchange, 'snapshots')
+		t = time.strftime('%M-%S')
+		db[self.exchange]['snapshots'][monthdayyear][t] = {}
+		db[self.exchange]['snapshots'][monthdayyear][t]['buy'] = str(mn_buy) +'--BUY\n'
+		db[self.exchange]['snapshots'][monthdayyear][t]['sell'] = str(mx_sell) + '--SELL\n'
+		db[self.exchange]['snapshots'][monthdayyear][t]['spread'] = str(spread) + '--SPREAD\n'
+		db[self.exchange]['snapshots'][monthdayyear][t]['last'] = str(last) + '--LAST\n'
 		writeOut()
 		return (mn_buy, mx_sell, last)
 	
@@ -108,11 +108,10 @@ class Daylog(object):
 
 		#Create new DB keys if needed
 		entry_count = 0
-		curr_date = time.strftime("%Y-%m-%d-%R%S", localtime())
-		monthyear = time.strftime("%m/%Y")
+		curr_date = time.strftime("%m/%d/%Y")
  
-		if monthyear not in (db[self.exchange]['logs']):
-			newMonthLog(self.exchange)
+		if curr_date not in (db[self.exchange]['logs']):
+			newDateLog(self.exchange, 'logs')
 
 		
 		#START EVERY DAY call ratios 
@@ -192,20 +191,22 @@ class Daylog(object):
 
 			if success == False:
 				print('ENTRY WRITE FAILURE')
-				db[self.exchange]['logs'][monthyear][curr_date]['entry'] = "entry " + str(entry_count) + "FAILURE BITCH \n"
+				db[self.exchange]['logs'][curr_date]['entry'] = "entry " + str(entry_count) + "FAILURE BITCH \n"
 			
 			elif success == True:
 				print('\n ENTRY ' + str(entry_count) + ' Written \n')
+				t = time.strftime('%H-%M-%S')
 				e_range = e_high - e_low
-				newCurrDate(self.exchange, monthyear, 'logs', curr_date)
-				db[self.exchange]['logs'][monthyear][curr_date]['entry'] = "entry " + str(entry_count) + "\n"
-				db[self.exchange]['logs'][monthyear][curr_date]['time'] = "time " + time.strftime("%H:%M:%S", localtime()) + "\n"
-				db[self.exchange]['logs'][monthyear][curr_date]['sell_high'] = "sell high: " + str(e_sell) + "\n"
-				db[self.exchange]['logs'][monthyear][curr_date]['buy_low'] = "buy low: " + str(e_buy) + "\n"
-				db[self.exchange]['logs'][monthyear][curr_date]['spread'] = "spread: " + str(e_spread) + "\n"
-				db[self.exchange]['logs'][monthyear][curr_date]['high'] = "high: " + str(e_high) + "\n"
-				db[self.exchange]['logs'][monthyear][curr_date]['low'] = "low: " + str(e_low) + "\n"
-				db[self.exchange]['logs'][monthyear][curr_date]['range'] = "range: " + str(e_range) + "\n"
+				newDateLog(self.exchange, 'logs')
+				db[self.exchange]['logs'][curr_date][t] = {}
+				db[self.exchange]['logs'][curr_date][t]['entry'] = "entry " + str(entry_count) + "\n"
+				db[self.exchange]['logs'][curr_date][t]['time'] = "time " + time.strftime("%H:%M:%S", localtime()) + "\n"
+				db[self.exchange]['logs'][curr_date][t]['sell_high'] = "sell high: " + str(e_sell) + "\n"
+				db[self.exchange]['logs'][curr_date][t]['buy_low'] = "buy low: " + str(e_buy) + "\n"
+				db[self.exchange]['logs'][curr_date][t]['spread'] = "spread: " + str(e_spread) + "\n"
+				db[self.exchange]['logs'][curr_date][t]['high'] = "high: " + str(e_high) + "\n"
+				db[self.exchange]['logs'][curr_date][t]['low'] = "low: " + str(e_low) + "\n"
+				db[self.exchange]['logs'][curr_date][t]['range'] = "range: " + str(e_range) + "\n"
 
 				writeOut()
 				entry_count = entry_count + 1			
@@ -215,6 +216,4 @@ class Daylog(object):
 		# add to daily logs
 		self.d_range = self.d_high - self.d_low
 		self.daily_logs.append(( self.d_high, self.d_low, self.d_range))
-		
-day = Daylog('COIN-BS')
-day.log_day()	
+	
