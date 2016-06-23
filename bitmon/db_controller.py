@@ -49,7 +49,7 @@ def getOKCSnapshots():
 
 def writeOut():
 	with open(os.path.join(os.path.dirname(__file__),"db.json"),'w') as jsonFile:
-		print(json.dumps(db, indent=4, sort_keys=True))
+		#print(json.dumps(db, indent=4, sort_keys=True))
 		jsonFile.write(json.dumps(db, indent=4, sort_keys=True))
 		print('written')
 

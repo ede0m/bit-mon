@@ -1,10 +1,11 @@
-psuedo
-
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from api_call import *
 
 bc_balance = 0 # this is the current bitcoin balance accross the three markets?
 usd_balance = 0 # this is the current us dollar balance accross the three markets?
-bc_worth = 0 # our current net worth in terms of bitcoin
-usd_worth = 0 # our current net worth in terms of us dollars
+bc_worth = 1 # our current net worth in terms of bitcoin
+usd_worth = 1 # our current net worth in terms of us dollars
 
 bc_base = 0 # baseline for bc
 usd_base = 0 # baseline for us dollars
@@ -46,10 +47,10 @@ def arbitrage():
 	if(usd_r > .4 and usd_balance >= usd_base and spread > .015):
 		buy = "B"
 		# probably some logic in here to determine how much we wanna buy
-	if((bc_r > .2 and bc_r <= .4) and bc_balance > bc_base and spread > 0.025:
+	if(bc_r > .2 and bc_r <= .4 and bc_balance > bc_base and spread > 0.025):
 		sell = "S"
 		# probs some logic shit
-	if((usd_r > .2 and usd_r <= .4)and usd_balance > usd_base and spread > 0.025):
+	if(usd_r > .2 and usd_r <= .4 and usd_balance > usd_base and spread > 0.025):
 		buy = "B"
 		# Same ol shit
 	if(bc_r < .2 and bc_balance > usd_base and spread > 0.035):
@@ -60,10 +61,11 @@ def arbitrage():
 		# shit
 	return sell + buy
 
-def tradingAlog(someshit):
+def tradingAlgo():
+	buy_c('COIN-BS', 1)
+	
 
-	## WE NEED TO DO THIS SHIT.
-	## Probably controlled by a parameter or some shit
+#tradingAlgo()
 
-initiateTrade[arbitrage()]
+#initiateTrade[arbitrage()]
 

@@ -1,35 +1,24 @@
 #!/usr/bin/python3
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from api_call import *
 import time
 import json
 from time import localtime
 import requests
-import os
-import sys
 from db_controller import *
 from decimal import *
-from api_call import api_call
 
 class Daylog(object):
 
 	def __init__(self, exchange):
 		self.exchange = exchange
-		self.key = None
-		self.secret = None
 		self.d_high = 0
 		self.d_low = 0
-		#self.mx_spread = 0
 		self.daily_range = 0
 
 	def get_logs(self):
 		return self.daily_logs
-
-	
-	def __get_api_data(self, exchange):			
-		api = api_call()
-		if self.exchange == 'COIN-BS':
-			api.rk()
-		
-		return api.get_data(exchange)
 
 	
 	def adjust_server_call(self, time_A, time_B, old):
@@ -53,7 +42,7 @@ class Daylog(object):
 
 
 	def __snapshot(self, ratio):
-		data = self.__get_api_data(self.exchange)
+		data = get_data(self.exchange)
 		count = 0
 		curr = 0
 		sell_high = data[1]
@@ -67,10 +56,10 @@ class Daylog(object):
 
 		monthyear = time.strftime("%m/%Y")
 
-		#sample most recent price 50 times within 1 minutes
+		#sample most recent price 25 times within 1/2 minutes
 		while count <= 24:
 			#update snap vars
-			data = self.__get_api_data(self.exchange)
+			data = get_data(self.exchange)
 			sell_high = data[1]
 			buy_low = data[0]
 			spread = data[1] - data[0]
@@ -87,8 +76,7 @@ class Daylog(object):
 				self.d_high = last
 			elif self.d_low > last:
 				self.d_low = last
-
-			total_last = total_last + last 
+ 
 			
 			print('-----------------')
 			print('-  ' + str(buy_low) +'--BUY')
@@ -96,44 +84,38 @@ class Daylog(object):
 			print('-  ' + str(spread) + '--SPREAD')
 			print('-  ' + str(last) + '--LAST')
 
-			if monthyear not in db[self.exchange]['snapshots']:
-				db[self.exchange]['snapshots'][monthyear] = {}
-			curr_date = time.strftime("%Y-%m-%d-%R%S", localtime())
-			db[self.exchange]['snapshots'][monthyear][curr_date] = {}
-			db[self.exchange]['snapshots'][monthyear][curr_date]['buy'] = str(buy_low) +'--BUY\n'
-			db[self.exchange]['snapshots'][monthyear][curr_date]['sell'] = str(sell_high) + '--SELL\n'
-			db[self.exchange]['snapshots'][monthyear][curr_date]['spread'] = str(spread) + '--SPREAD\n'
-			db[self.exchange]['snapshots'][monthyear][curr_date]['last'] = str(last) + '--LAST\n'
-			writeOut()
 
 			time.sleep(ratio)
 			count = count + 1 		
 
-		# returns sample data from 30 sec with highest high, lowest low, and largest spread within the snapshot 
-
-		return (mn_buy, mx_sell, (total_last/(count+1)))
+		# returns sample data from 30 sec with highest high, lowest low, and largest spread within the snapshot 		
+		if monthyear not in db[self.exchange]['snapshots']:
+			db[self.exchange]['snapshots'][monthyear] = {}
+		curr_date = time.strftime("%Y-%m-%d-%R%S", localtime())
+		db[self.exchange]['snapshots'][monthyear][curr_date] = {}
+		db[self.exchange]['snapshots'][monthyear][curr_date]['buy'] = str(mn_buy) +'--BUY\n'
+		db[self.exchange]['snapshots'][monthyear][curr_date]['sell'] = str(mx_sell) + '--SELL\n'
+		db[self.exchange]['snapshots'][monthyear][curr_date]['spread'] = str(spread) + '--SPREAD\n'
+		db[self.exchange]['snapshots'][monthyear][curr_date]['last'] = str(last) + '--LAST\n'
+		writeOut()
+		return (mn_buy, mx_sell, last)
 	
 	
 	##########################################################################
 	# Logs entire day of coin flux at freq of 2.5 mins when entry_count = 576
 	##########################################################################
 	def log_day(self):
-		#Start logging for one day
+
+		#Create new DB keys if needed
 		entry_count = 0
 		curr_date = time.strftime("%Y-%m-%d-%R%S", localtime())
-		print(curr_date)
-
-
-		#create log file and directory
-		# print(db)
 		monthyear = time.strftime("%m/%Y")
+		for key in (db[self.exchange]['logs']):
+			print(key)
+ 
 		if monthyear not in (db[self.exchange]['logs']):
 			newmonth = newMonthLog(self.exchange)
-			# db[self.exchange]['logs'][newmonth].append(curr_date] = {} 
 
-		# path = 'bitmon/logs/'+ self.exchange +'/'+curr_date
-		# if not os.path.exists(path):
-		#    		os.makedirs(path)	
 		
 		#START EVERY DAY call ratios 
 		if (self.exchange == 'COIN-BS'):
@@ -147,8 +129,6 @@ class Daylog(object):
 		while entry_count <= 575: 
 			
 			entryname = 'entry_' + str(entry_count)
-			# db[self.exchange]['logs'][newmonth] = {}
-			# entry = open(os.path.join(path,filename), 'w')
 			
 			#SAMPLE SNAP ---- CAUSES SLOW START Possibly 			
 			time_a = time.time()
@@ -167,8 +147,8 @@ class Daylog(object):
 			success = True
 		
 			
-			#5 snapshots = 2.5 minutes = 1 entry
-			while count <= 3: 
+			# 10 snapshots = 5 minutes = 1 entry
+			while count <= 8: 
 				time_A = time.time()  
 				snap = self.__snapshot(adjust_ratio)
 				
@@ -210,14 +190,15 @@ class Daylog(object):
 				adjust_ratio = self.adjust_server_call(time_A, time_B, adjust_ratio)				
 			
 			# MAKE LOG ENTRY 
+			#db.newCurrDate(self.exchange, monthyear, 'logs', curr_date)
+
 			if success == False:
-				print('Failure bitchass')
-				entry.write('NON SUCCESSFUL ENTRY -- ERROR OCCURED on entry # ' + str(entry_count) +'\n')
-						
+				print('ENTRY WRITE FAILURE')
+				db[self.exchange]['logs'][monthyear][curr_date]['entry'] = "entry " + str(entry_count) + "FAILURE BITCH \n"
+			
 			elif success == True:
 				print('\n ENTRY ' + str(entry_count) + ' Written \n')
 				e_range = e_high - e_low
-				
 				db.newCurrDate(self.exchange, monthyear, 'logs', curr_date)
 				db[self.exchange]['logs'][monthyear][curr_date]['entry'] = "entry " + str(entry_count) + "\n"
 				db[self.exchange]['logs'][monthyear][curr_date]['time'] = "time " + time.strftime("%H:%M:%S", localtime()) + "\n"
@@ -229,17 +210,6 @@ class Daylog(object):
 				db[self.exchange]['logs'][monthyear][curr_date]['range'] = "range: " + str(e_range) + "\n"
 
 				writeOut()
-
-
-
-				# entry.write('ENTRY ' + str(entry_count) + ': \n')
-				# entry.write('--TIME: ' + time.strftime("%H:%M:%S", localtime()) + '\n')
-				# entry.write('--SELL-HIGH: ' + str(e_sell) + '\n')
-				# entry.write('--BUY-LOW: '  + str(e_buy) + '\n')
-				# entry.write('--SPREAD: '+ str(e_spread) + '\n')
-				# entry.write('--HIGH: '+ str(e_high) + '\n')
-				# entry.write('--LOW: '+ str(e_low) + '\n')
-				# entry.write('--RANGE: '+ str(e_range) +'\n----------------------------\n' )
 				entry_count = entry_count + 1			
 			
 		
@@ -248,5 +218,5 @@ class Daylog(object):
 		self.d_range = self.d_high - self.d_low
 		self.daily_logs.append(( self.d_high, self.d_low, self.d_range))
 		
-		print (self.daily_logs) 
-	
+day = Daylog('COIN-BS')
+day.log_day()	
