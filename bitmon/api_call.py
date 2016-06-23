@@ -13,8 +13,9 @@ class api_call(object):
 	def __init__(self):
 		self.CB_key = None
 		self.CB_secret = None
-		self.CB_account = '92ba669f-f124-51bb-bc31-24670e47566c'
-
+		self.CB_account = None
+		self.CB_payment_method = None
+	
 	def rk(self):
 		where_s = os.getcwd()
 		where_s = where_s.split('/')
@@ -32,10 +33,15 @@ class api_call(object):
 		for line in fileinput.input(filename):
 			# COINBASE KEY PARSING
 			if line[0] == 'C' and line[1] == 'B':
+				
 				if line[4] == 'K':
 					self.CB_key = line.split(' ')[1]
 				elif line[4] == 'S':
 					self.CB_secret = line.split(' ')[1]
+				elif line[4] == 'A':
+					self.CB_account = line.split(' ')[1]
+				elif line[4] == 'P':
+					self.CB_payment_method = line.split(' ')[1]
 				else:
 					print('NO API KEY, sorry chump')
 
@@ -94,20 +100,18 @@ class api_call(object):
 	
 
 
-	def buy(self, exchange, amount):
+	def buy_c(self, exchange, b_amount):
 	
 		if exchange == 'COIN-BS':
 			
 			### THIS IS ALL FUCKED! SCREW CB ###			
-
-			client = Client(self.CB_key, self.CB_secret)
-			#transAX = client.get_transactions('92ba669f-f124-51bb-bc31-24670e47566c')
-			#pprint(transAX)
-			buy = client.buy(account_id=self.CB_account, amount=str(amount),		#str(amount)
-					  currency="USD",
-					  payment_method="e3ccf1ab-9930-5762-84a7-c842cba8acac")	
+			client = Client(self.CB_key, self.CB_secret)			
+			buy = client.buy(self.CB_account, amount=str(b_amount), currency="USD", payment_method=self.CB_payment_method)
 			pprint(buy)
-
+		
+		elif exchange == 'OKC':
+			pass
+	
 	def sell(self, exchange):
 	
 		pass
@@ -116,3 +120,11 @@ class api_call(object):
 		#HOLD MORE MONEY IN US DOLLARS BECAUSE SAFER! :)
 
 		pass
+
+
+
+#api = api_call()
+#api.rk()
+#buy = api.buy_c('COIN-BS', 1)
+
+
