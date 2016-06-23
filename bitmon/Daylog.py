@@ -110,11 +110,9 @@ class Daylog(object):
 		entry_count = 0
 		curr_date = time.strftime("%Y-%m-%d-%R%S", localtime())
 		monthyear = time.strftime("%m/%Y")
-		for key in (db[self.exchange]['logs']):
-			print(key)
  
 		if monthyear not in (db[self.exchange]['logs']):
-			newmonth = newMonthLog(self.exchange)
+			newMonthLog(self.exchange)
 
 		
 		#START EVERY DAY call ratios 
@@ -199,7 +197,7 @@ class Daylog(object):
 			elif success == True:
 				print('\n ENTRY ' + str(entry_count) + ' Written \n')
 				e_range = e_high - e_low
-				db.newCurrDate(self.exchange, monthyear, 'logs', curr_date)
+				newCurrDate(self.exchange, monthyear, 'logs', curr_date)
 				db[self.exchange]['logs'][monthyear][curr_date]['entry'] = "entry " + str(entry_count) + "\n"
 				db[self.exchange]['logs'][monthyear][curr_date]['time'] = "time " + time.strftime("%H:%M:%S", localtime()) + "\n"
 				db[self.exchange]['logs'][monthyear][curr_date]['sell_high'] = "sell high: " + str(e_sell) + "\n"
