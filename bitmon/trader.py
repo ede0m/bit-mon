@@ -62,7 +62,7 @@ def trade_decision(spread):
 	return sell + buy
 
 def makeTrade():
-	send_funds('COIN-BS', 'KRK', .01, 'BTC')
+	sell('KRK', .01, 'BTC')
 	
 
 makeTrade()
