@@ -6,8 +6,10 @@ import time
 import json
 from time import localtime
 import requests
-from db_controller import *
+import db_controller
 from decimal import *
+
+
 
 class Daylog(object):
 
@@ -16,6 +18,7 @@ class Daylog(object):
 		self.d_high = 0
 		self.d_low = 0
 		self.daily_range = 0
+		db_controller.initialize(self.exchange)
 
 	def get_logs(self):
 		return self.daily_logs
@@ -89,15 +92,15 @@ class Daylog(object):
 			count = count + 1 		
 
 		# returns sample data from 30 sec with highest high, lowest low, and largest spread within the snapshot 		
-		if monthdayyear not in db[self.exchange]['snapshots']:
-			newDateLog(self.exchange, 'snapshots')
+		if monthdayyear not in db_controller.db['snapshots']:
+			db_controller.newDateLog('snapshots')
 		t = time.strftime('%M-%S')
-		db[self.exchange]['snapshots'][monthdayyear][t] = {}
-		db[self.exchange]['snapshots'][monthdayyear][t]['buy'] = str(mn_buy) +'--BUY\n'
-		db[self.exchange]['snapshots'][monthdayyear][t]['sell'] = str(mx_sell) + '--SELL\n'
-		db[self.exchange]['snapshots'][monthdayyear][t]['spread'] = str(spread) + '--SPREAD\n'
-		db[self.exchange]['snapshots'][monthdayyear][t]['last'] = str(last) + '--LAST\n'
-		writeOut()
+		db_controller.db['snapshots'][monthdayyear][t] = {}
+		db_controller.db['snapshots'][monthdayyear][t]['buy'] = str(mn_buy) +'--BUY\n'
+		db_controller.db['snapshots'][monthdayyear][t]['sell'] = str(mx_sell) + '--SELL\n'
+		db_controller.db['snapshots'][monthdayyear][t]['spread'] = str(spread) + '--SPREAD\n'
+		db_controller.db['snapshots'][monthdayyear][t]['last'] = str(last) + '--LAST\n'
+		db_controller.writeOut(self.exchange)
 		return (mn_buy, mx_sell, last)
 	
 	
@@ -109,9 +112,9 @@ class Daylog(object):
 		#Create new DB keys if needed
 		entry_count = 0
 		curr_date = time.strftime("%m/%d/%Y")
- 
-		if curr_date not in (db[self.exchange]['logs']):
-			newDateLog(self.exchange, 'logs')
+		# =
+		if curr_date not in (db_controller.db['logs']):
+			db_controller.newDateLog('logs')
 
 		
 		#START EVERY DAY call ratios 
@@ -193,24 +196,24 @@ class Daylog(object):
 
 			if success == False:
 				print('ENTRY WRITE FAILURE')
-				db[self.exchange]['logs'][curr_date]['entry'] = "entry " + str(entry_count) + "FAILURE BITCH \n"
+				db_controller.db[self.exchange]['logs'][curr_date]['entry'] = "entry " + str(entry_count) + "FAILURE BITCH \n"
 			
 			elif success == True:
 				print('\n ENTRY ' + str(entry_count) + ' Written \n')
 				t = time.strftime('%H-%M-%S')
 				e_range = e_high - e_low
-				newDateLog(self.exchange, 'logs')
-				db[self.exchange]['logs'][curr_date][t] = {}
-				db[self.exchange]['logs'][curr_date][t]['entry'] = "entry " + str(entry_count) + "\n"
-				db[self.exchange]['logs'][curr_date][t]['time'] = "time " + time.strftime("%H:%M:%S", localtime()) + "\n"
-				db[self.exchange]['logs'][curr_date][t]['sell_high'] = "sell high: " + str(e_sell) + "\n"
-				db[self.exchange]['logs'][curr_date][t]['buy_low'] = "buy low: " + str(e_buy) + "\n"
-				db[self.exchange]['logs'][curr_date][t]['spread'] = "spread: " + str(e_spread) + "\n"
-				db[self.exchange]['logs'][curr_date][t]['high'] = "high: " + str(e_high) + "\n"
-				db[self.exchange]['logs'][curr_date][t]['low'] = "low: " + str(e_low) + "\n"
-				db[self.exchange]['logs'][curr_date][t]['range'] = "range: " + str(e_range) + "\n"
+				db_controller.newDateLog('logs')
+				db_controller.db['logs'][curr_date][t] = {}
+				db_controller.db['logs'][curr_date][t]['entry'] = "entry " + str(entry_count) + "\n"
+				db_controller.db['logs'][curr_date][t]['time'] = "time " + time.strftime("%H:%M:%S", localtime()) + "\n"
+				db_controller.db['logs'][curr_date][t]['sell_high'] = "sell high: " + str(e_sell) + "\n"
+				db_controller.db['logs'][curr_date][t]['buy_low'] = "buy low: " + str(e_buy) + "\n"
+				db_controller.db['logs'][curr_date][t]['spread'] = "spread: " + str(e_spread) + "\n"
+				db_controller.db['logs'][curr_date][t]['high'] = "high: " + str(e_high) + "\n"
+				db_controller.db['logs'][curr_date][t]['low'] = "low: " + str(e_low) + "\n"
+				db_controller.db['logs'][curr_date][t]['range'] = "range: " + str(e_range) + "\n"
 
-				writeOut()
+				db_controller.writeOut(self.exchange)
 				entry_count = entry_count + 1			
 			
 		
