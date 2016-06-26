@@ -115,11 +115,13 @@ class Daylog(object):
 
 		
 		#START EVERY DAY call ratios 
-		if (self.exchange == 'COIN-BS'):
+		if self.exchange == 'COIN-BS':
 			adjust_ratio = 0.1
 		elif self.exchange == 'BLK-CHN':
 			adjust_ratio = 1.02 
 		elif self.exchange == 'OKC':
+			adjust_ratio = 1.00
+		elif self.exchange == 'KRK':
 			adjust_ratio = 1.00
 	
 		# 576 entries for a day 

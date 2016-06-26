@@ -36,6 +36,27 @@
             }
         }
     },
+    "KRK": {
+        "logs": {
+            "06/25/2016": {}
+        },
+        "snapshots": {
+            "06/25/2016": {
+                "19-53": {
+                    "buy": "674.35--BUY\n",
+                    "last": "674.39--LAST\n",
+                    "sell": "671.37--SELL\n",
+                    "spread": "-3.63--SPREAD\n"
+                },
+                "20-35": {
+                    "buy": "673.50--BUY\n",
+                    "last": "674.39--LAST\n",
+                    "sell": "671.37--SELL\n",
+                    "spread": "-2.13--SPREAD\n"
+                }
+            }
+        }
+    },
     "OKC": {
         "logs": {},
         "snapshots": {}

@@ -32,7 +32,6 @@ def get_best_spread():
 
 
 
-
 ## UP FOR DISCUSSION ---> This are more of examples then code
 
 ## This is supposed to sort of form a "filter" or "funnel" that 
@@ -41,11 +40,11 @@ def trade_decision(spread):
 	buy = "" # variable controlling if we buy
 	sell = "" # variable controlling if we sell
 	
-	if(bc_r > .4 and bc_assets >= bc_base and spread > .015):
+	# we have more bitcoin than we should and spread looks good. 
+	if(bc_r > 4. and bc_assets >= bc_base and spread > .015):
 		sell = "S"
-		# probably some logic in here to determine how much we wanna sell
-
-	if(usd_r > .4 and usd_assets >= usd_base and spread > .015):
+	# we have more than 60% of our funds in USD, buy bitcoin
+	if(usd_r > .6 and usd_assets >= usd_base and spread > .015):
 		buy = "B"
 		# probably some logic in here to determine how much we wanna buy
 	if(bc_r > .2 and bc_r <= .4 and bc_assets > bc_base and spread > 0.025):
