@@ -27,6 +27,7 @@ class Trader(object):
 		"S" : "", # sell shit
 		"B" : "", # buy shit
 		"SB" : "" # TRADE shit
+		"T" : "" # transfer
 	}		 
 
 	# Returns profit ratio from best spread between any 2 markets
@@ -73,48 +74,118 @@ class Trader(object):
 	def trade_decision():
 		
 		input_spread = self.__get_spread_info()
-		spread = (input_spread[1] - input_spread[0])
+		buying_price = input_spread[0]
+		selling_price = input_spread[1]
+		spread = (selling_price - buying_price)
 		spread_r = input_spread[2]
+		
 		total_assets = get_balance()
 		print(total_assets)
-		self.usd_assets = total_assets[0]
-		self.bc_assets = total_assets[1]
+		self.usd_assets = total_assets[0] + total_assets[2]
+		self.bc_assets = total_assets[1] + total_assets[3]
 		worth_unit = ((best_buy + best_sell)/2)
 		self.bc_worth = (self.usd_assets / worth_unit) + self.bc_assets
 		self.usd_worth = (self.bc_assets * worth_unit) + self.usd_assets
 		self.bc_r = self.bc_assets/self.bc_worth
 		self.usd_r = self.usd_assets/self.usd_worth
 
+		KR_usd = total_assets[0]
+		CB_usd = total_assets[2]
+		KR_bt = total_assets[1]
+		CB_bt = total_assets[3]
 
+		ex_buy = input_spread[3]
+		ex_sell = input_spread[4]
 
 		buy = "" # variable controlling if we buy
 		sell = "" # variable controlling if we sell
-	
-		# we have more bitcoin than we should and spread looks good. 
-		if(bc_r > 4. and bc_assets >= bc_base and spread > .015):
-			sell = "S"
-		# we have more than 60% of our funds in USD, buy bitcoin
-		if(usd_r > .6 and usd_assets >= usd_base and spread > .015):
-			buy = "B"
+
+		# default trade is 6% of payable assets in any one market 
+		volume = .06
+		# baseline is the least amout of profit (in USD) accepted for a trade
+		baseline =.25
+
+
+		# we have more bitcoin than we should and spread looks GREAT. 
+		if(bc_r > .4 and bc_assets >= bc_base and spread_r > .016):
+			volume = .40
+			amount_usd = KR_usd * volume
+			amount = amount_usd/buying_price
+			trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
+
+		# # we have more than 60% of our funds in USD, buy bitcoin
+		# if(usd_r > .6 and usd_assets >= usd_base and spread_r > .015):
+			  
+
 		# probably some logic in here to determine how much we wanna buy
-		if(bc_r > .2 and bc_r <= .4 and bc_assets > bc_base and spread > 0.025):
-			sell = "S"
-		# probs some logic shit
-		if(usd_r > .2 and usd_r <= .4 and usd_assets > usd_base and spread > 0.025):
-			buy = "B"
+		if(bc_r > .25 and bc_assets > bc_base and spread_r > 0.01):
+			volume = .20
+			amount_usd = KR_usd * volume
+			amount = amount_usd/buying_price
+			trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
+		
+		# # probs some logic shit
+		# if(usd_r > .2 and usd_r <= .4 and usd_assets > usd_base and buying_price, selling_price > 0.025):
+		# 	buy = "B"
+		
 		# Same ol shit
-		if(bc_r < .2 and bc_assets > usd_base and spread > 0.035):
-			sell = "S"
-		# Some shit maybe?
-		if(usd_r < .2 and usd_assets > usd_base and spread > 0.035):
-			buy = "B"
-		# shit
+		if(bc_r > .10 and bc_assets > usd_base and spread_r > 0.004):
+			volume = .10
+			amount_usd = KR_usd * volume
+			amount = amount_usd/buying_price
+			trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
+
+		
+		# # Some shit maybe?
+		# if(usd_r < .2 and usd_assets > usd_base and spread > 0.035):
+		# 	buy = "B"
+		# # shit
 		
 		return sell + buy
 
 	# def makeTrade():
 	# 	#sell('KRK', .01, 'BTC')
+	def makeTrade(buyer, seller, amount, buying_price, selling_price, baseline):
+		
+		#CHECK FEES AGAINST profit
+		# coinbase has a buy / sell fee of 1%
+		spread = selling_price - buying_price	
 
-trader = Trader()
-trader.get_spread_info()
+		if buyer == 'COIN-BS':
+			buy_fee = float("{0:.2f}".format((.01)(buying_price)(amount)))
+		# kraken changes fee based on volume of trades per user. Will always be between 0.16% and 0.26%
+		if buyer == 'KRK':
+			buy_fee = float("{0:.2f}".format((.0016)(buying_price)(amount)))
+		
+		if seller == 'COIN-BS':
+			sell_fee = float("{0:.2f}".format((.01)(selling_price)(amount)))
+		
+		if seller == 'KRK':
+			sell_fee = float("{0:.2f}".format((.0016)(selling_price)(amount)))
+
+		total_fee = buy_fee + sell_fee
+
+		# Never make a trade that profits less than 25 cents
+		if (spread - total_fee) < baseline:
+			print('\n - - -  PROFIT LESS THAN BASELINE  - - -  \n - - -  TRADE ABORTED  - - - \n\n')
+			return False
+		# Make a trade and get rich
+		else:
+			buy = buy(buyer, amount, 'BTC')
+			sell = sell(seller, amount, 'BTC')
+
+			# MAY WANT TO QUERY ACTUAL DATA FROM BUY AND SELL to get final profit.
+
+
+
+
+		#LOG STUFF TO DB
+
+	def makeBuy(exchange, amount):
+
+		buy(exchange, amount, 'BTC')
+
+	def makeSell(exchange, amount):
+
+		sell(exchange, amount, 'BTC')
 
