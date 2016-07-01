@@ -1,6 +1,9 @@
-import os, sys, json
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from api_call import *
+# from .bitmon.api_call import *
+import sys
+import os
+import json
+sys.path.append("..")
+import masterDBcontroller
 
 
 class Trader(object):
@@ -25,15 +28,35 @@ class Trader(object):
 	}		 
 
 	# Returns profit ratio from best spread between any 2 markets
-	def __get_spread_info():
+	def get_spread_info(self):
 		best_buy = 0
 		best_sell = 0
 		exchange_buy = ''
 		exchange_sell = ''
 
-		with open(CB_db.json) as data_file:
-			data = json.load(data_file)
-		return (best_buy, best_sell, ((best_sell - best_buy) / best_buy), exchange_buy, exchange_sell)
+
+		bc_last = float(masterDBcontroller.getLast("COIN-BS"))
+		krk_last = float(masterDBcontroller.getLast("KRK"))
+
+		if (bc_last - krk_last) < 0 :
+			exchange_buy = "COIN-BS"
+			best_buy = bc_last
+			exchange_sell = "KRK"
+			best_sell = krk_last
+		else:
+			exchange_buy = "KRK"
+			best_buy = krk_last
+			exchange_sell = "COIN-BS"
+			best_sell = bc_last
+			
+
+		print(bc_last)
+		print(krk_last)
+
+		profit_r = (best_sell - best_buy) / best_buy
+		res = (best_buy, best_sell, profit_r, exchange_buy, exchange_sell)
+		print(res)
+		return res
 
 
 	## UP FOR DISCUSSION ---> This are more of examples then code
@@ -82,9 +105,9 @@ class Trader(object):
 		
 		return sell + buy
 
-	def makeTrade():
-		#sell('KRK', .01, 'BTC')
+	# def makeTrade():
+	# 	#sell('KRK', .01, 'BTC')
 
 trader = Trader()
-trader.trade_decision()
+trader.get_spread_info()
 

@@ -12,7 +12,8 @@
                 "spread": "spread: -12.52\n",
                 "time": "time 16:03:40\n"
             }
-        }
+        },
+        "06/30/2016": {}
     },
     "snapshots": {
         "06/23/2016": {
@@ -245,6 +246,38 @@
                 "last": "644.30--LAST\n",
                 "sell": "637.38--SELL\n",
                 "spread": "-13.52--SPREAD\n"
+            }
+        },
+        "06/30/2016": {
+            "03-23": {
+                "buy": "679.69--BUY\n",
+                "last": "672.92--LAST\n",
+                "sell": "666.21--SELL\n",
+                "spread": "-13.51--SPREAD\n"
+            },
+            "03-54": {
+                "buy": "679.69--BUY\n",
+                "last": "672.99--LAST\n",
+                "sell": "666.25--SELL\n",
+                "spread": "-13.54--SPREAD\n"
+            },
+            "04-24": {
+                "buy": "679.67--BUY\n",
+                "last": "672.99--LAST\n",
+                "sell": "666.18--SELL\n",
+                "spread": "-13.57--SPREAD\n"
+            },
+            "04-56": {
+                "buy": "679.67--BUY\n",
+                "last": "672.94--LAST\n",
+                "sell": "666.10--SELL\n",
+                "spread": "-13.57--SPREAD\n"
+            },
+            "05-24": {
+                "buy": "679.67--BUY\n",
+                "last": "672.94--LAST\n",
+                "sell": "666.24--SELL\n",
+                "spread": "-13.48--SPREAD\n"
             }
         }
     }
