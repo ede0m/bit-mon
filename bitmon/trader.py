@@ -6,6 +6,7 @@ sys.path.append("..")
 import masterDBcontroller
 
 
+
 class Trader(object):
 
 	def __init__(self):
@@ -17,6 +18,7 @@ class Trader(object):
 		usd_base = 0 # baseline for us dollars
 		bc_r = 0 # percentage of our net worth that is liquid bitcoin
 		usd_r = 0 # percentage of our net worth that is liquid us dollars
+
 
 
 	# MAYBE MOVE THIS TO MAIN, call return from Trader.trade_decision()
@@ -35,8 +37,10 @@ class Trader(object):
 		exchange_sell = ''
 
 
-		bc_last = float(masterDBcontroller.getLast("COIN-BS"))
-		krk_last = float(masterDBcontroller.getLast("KRK"))
+		bc_last = float(masterDBcontroller.getLast("COIN-BS")[0])
+		krk_last = float(masterDBcontroller.getLast("KRK")[0])
+
+		date = masterDBcontroller.getLast("KRK")[2]
 
 		if (bc_last - krk_last) < 0 :
 			exchange_buy = "COIN-BS"
@@ -50,12 +54,15 @@ class Trader(object):
 			best_sell = bc_last
 			
 
-		print(bc_last)
-		print(krk_last)
+		# print(bc_last)
+		# print(krk_last)
 
 		profit_r = (best_sell - best_buy) / best_buy
 		res = (best_buy, best_sell, profit_r, exchange_buy, exchange_sell)
 		print(res)
+		temp_best_spread = masterDBcontroller.getBestSpread()
+		if(profit_r >= temp_best_spread):
+			masterDBcontroller.setBestSpread(profit_r, date)
 		return res
 
 

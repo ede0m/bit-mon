@@ -1,5 +1,6 @@
 import os
 import json
+import merger
 
 db = {}
 
@@ -21,7 +22,17 @@ def load():
 # 		print(json.dumps(p_db, indent=4, sort_keys=True))
 
 
+def getBestSpread():
+    return db["best-spread"]["spread"]
+
+def setBestSpread(new, date):
+    db["best-spread"]["spread"] = new
+    db["best-spread"]["date"] = date
+    with open(os.path.join(os.path.dirname(__file__),"master_db.json"),'w') as data_file:
+        data_file.write(json.dumps(db, indent=4, sort_keys=True))
+
 def getLast(exchange):
+    merger.merge()
     snapshots_keys = list(db[exchange]['snapshots'].keys())
     last_key = snapshots_keys[0]
     for i in snapshots_keys:
@@ -29,17 +40,27 @@ def getLast(exchange):
     	temp = i.split("/")
     	if(temp[0] >= tempkey[0] and temp[1] > tempkey[1]):
     		last_key = i
-    print(snapshots_keys)
+    # print(snapshots_keys)
     
-    print(last_key)
+    # print(last_key)
     for key in snapshots_keys:   
-        sp = key.split("/")[1]
-        if(int(last_key.split('/')[1]) < int(sp)):
-            last_ky = key
+        day = key.split("/")[1]
+        month = key.split("/")[0]
+        passover = False
+        # print("int(last_key.split('/')[1]) < int(day) or int(last_key.split('/')[0]) < int(month)", (int(last_key.split('/')[1]) < int(day)), (int(last_key.split("/")[0]) < int(month)))
+        # print(int(month), int(last_key.split("/")[0])
+        if(int(last_key.split("/")[0]) < int(month)):
+                # print("fuuck")
+                last_key = key
+                passover = True
+        elif(int(last_key.split('/')[1]) < int(day) and int(last_key.split("/")[0]) == int(month)):
+            print("agg")
+            last_key = key
+    print(last_key)
     last_raw_data_keys = list(db[exchange]['snapshots'][last_key].keys())
     last_raw_data_key = last_raw_data_keys[0]
     for key in last_raw_data_keys:
-        #print("key ---> ", key)
+        # print("key ---> ", key)
         #print("last_raw_data_key ----> ", last_raw_data_key)
         mn = key.split("-")[0]
         sc = key.split("-")[1]
@@ -51,14 +72,17 @@ def getLast(exchange):
                 sec = ky.split("-")[1]
                 if (int(last_raw_data_key.split('-')[0]) <= int(minu) and int(last_raw_data_key.split('-')[1]) < int(sec)):
                     last_raw_data_key = ky
-    # print(last_raw_data_key)
+    print(last_raw_data_key)
     last_raw_data = db[exchange]['snapshots'][last_key][last_raw_data_key]
     # print(last_raw_data)
+    print(last_raw_data)
     last = last_raw_data["last"]
     last_split = last.split("--")
     last_num = last_split[0]
-    print(last_num)
-    return last_num
+    # print(last_num)
+    res = (last_num, last_raw_data_key, last_key)
+    print(res)
+    return res
 
 
 load()
