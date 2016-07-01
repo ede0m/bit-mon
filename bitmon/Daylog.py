@@ -7,7 +7,7 @@ import json
 from time import localtime
 import requests
 import db_controller
-from decimal import *
+#from decimal import *
 
 
 
