@@ -94,7 +94,8 @@ class Daylog(object):
 		# returns sample data from 30 sec with highest high, lowest low, and largest spread within the snapshot 		
 		if monthdayyear not in db_controller.db['snapshots']:
 			db_controller.newDateLog('snapshots')
-		t = time.strftime('%M-%S')
+		t = time.strftime('%H-%M-%S')
+		print("TIME YO!!!!!!!", t)
 		db_controller.db['snapshots'][monthdayyear][t] = {}
 		db_controller.db['snapshots'][monthdayyear][t]['buy'] = str(mn_buy) +'--BUY\n'
 		db_controller.db['snapshots'][monthdayyear][t]['sell'] = str(mx_sell) + '--SELL\n'

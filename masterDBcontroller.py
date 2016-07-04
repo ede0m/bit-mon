@@ -54,28 +54,33 @@ def getLast(exchange):
                 last_key = key
                 passover = True
         elif(int(last_key.split('/')[1]) < int(day) and int(last_key.split("/")[0]) == int(month)):
-            print("agg")
+            # print("agg")
             last_key = key
-    print(last_key)
+    # print(last_key)
     last_raw_data_keys = list(db[exchange]['snapshots'][last_key].keys())
     last_raw_data_key = last_raw_data_keys[0]
     for key in last_raw_data_keys:
         # print("key ---> ", key)
-        #print("last_raw_data_key ----> ", last_raw_data_key)
-        mn = key.split("-")[0]
-        sc = key.split("-")[1]
+        # print("last_raw_data_key ----> ", last_raw_data_key)
+        hr = key.split("-")[0]
         #print("int(last_raw_data_key.split('-')[0]) <= int(mn) and int(last_raw_data_key.split('-')[1]) < int(sc) ------- ", int(last_raw_data_key.split('-')[0]) <= int(mn) and int(last_raw_data_key.split('-')[1]) < int(sc), int(last_raw_data_key.split('-')[0]), int(mn), int(last_raw_data_key.split('-')[1]),  int(sc))
-        if(int(last_raw_data_key.split('-')[0]) <= int(mn)):
+        if(int(last_raw_data_key.split('-')[0]) <= int(hr)):
             last_raw_data_key = key
             for ky in last_raw_data_keys:
-                minu = ky.split("-")[0]
-                sec = ky.split("-")[1]
-                if (int(last_raw_data_key.split('-')[0]) <= int(minu) and int(last_raw_data_key.split('-')[1]) < int(sec)):
+                hor = ky.split("-")[0]
+                minu = ky.split("-")[1]
+                if (int(last_raw_data_key.split('-')[0]) <= int(hor) and int(last_raw_data_key.split('-')[1]) <= int(minu)):
                     last_raw_data_key = ky
-    print(last_raw_data_key)
+                    for k in last_raw_data_keys:
+                        h = k.split("-")[0]
+                        m = k.split("-")[1]
+                        s = k.split("-")[2]
+                        if(int(last_raw_data_key.split('-')[0]) <= int(h) and int(last_raw_data_key.split('-')[1]) <= int(m) and int(last_raw_data_key.split('-')[2]) < int(s)):
+                            last_raw_data_key = k
+    # print(last_raw_data_key)
     last_raw_data = db[exchange]['snapshots'][last_key][last_raw_data_key]
     # print(last_raw_data)
-    print(last_raw_data)
+    # print(last_raw_data)
     last = last_raw_data["last"]
     last_split = last.split("--")
     last_num = last_split[0]

@@ -26,7 +26,7 @@ class Trader(object):
 	initiateTrade = {
 		"S" : "", # sell shit
 		"B" : "", # buy shit
-		"SB" : "" # TRADE shit
+		"SB" : "", # TRADE shit
 		"T" : "" # transfer
 	}		 
 
@@ -129,7 +129,7 @@ class Trader(object):
 		# 	buy = "B"
 		
 		# Same ol shit
-		if(bc_r > .10 and bc_assets > usd_base and spread_r > 0.004):
+		if(bc_r > .10 and bc_assets > bc_base and spread_r > 0.004):
 			volume = .10
 			amount_usd = KR_usd * volume
 			amount = amount_usd/buying_price
@@ -141,7 +141,7 @@ class Trader(object):
 		# 	buy = "B"
 		# # shit
 		
-		return sell + buy
+		# return sell + buy
 
 	# def makeTrade():
 	# 	#sell('KRK', .01, 'BTC')
@@ -188,4 +188,5 @@ class Trader(object):
 	def makeSell(exchange, amount):
 
 		sell(exchange, amount, 'BTC')
-
+trader = Trader()
+trader.get_spread_info()
