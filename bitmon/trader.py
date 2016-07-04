@@ -17,14 +17,11 @@ class Trader(object):
 		usd_base = 50 # baseline for us dollars
 		bc_r = 0 # percentage of our net worth that is liquid bitcoin
 		usd_r = 0 # percentage of our net worth that is liquid us dollars
-		last_trade = None
-		exchange_pair_list = [{'exchanges':'COIN-BS/KRK','usd_balance_r':'','last_trade':{'buy':{'buyer':'','price':''},'sell':{'seller':'','price':''}}}
+		baseline = .5
+		exchange_pair_list = {'exchanges':'COIN-BS/KRK',{'usd_balance_r':'','last_trade':{'buy':{'buyer':'','price':''},'sell':{'seller':'','price':''}}},
 
 
-
-								]
-
- 
+							}
 
 	# Returns profit ratio from best spread between any 2 markets
 	def get_spread_info(self):
@@ -65,21 +62,18 @@ class Trader(object):
 		return res
 
 
-	## UP FOR DISCUSSION ---> This are more of examples then code
-
-	## This is supposed to sort of form a "filter" or "funnel" that 
-	## our data falls down and determines risk vs. return kinda
 	def trade_decision():
 		
 		input_spread = self.__get_spread_info()
-		buying_price = input_spread[0]
-		selling_price = input_spread[1]
-		spread = (selling_price - buying_price)
+		buyingMKT_price = input_spread[0]
+		sellingMKT_price = input_spread[1]
+		spread = (sellingMKT_price - buyingMKT_price)
 		spread_r = input_spread[2]
+		ex_buy = input_spread[3]
+		ex_sell = input_spread[4]
 		exchange_pair = input_spread[5]
 		
 		total_assets = get_balance()
-		print(total_assets)
 		self.usd_assets = total_assets[0] + total_assets[2]
 		self.bc_assets = total_assets[1] + total_assets[3]
 		worth_unit = ((best_buy + best_sell)/2)
@@ -88,97 +82,126 @@ class Trader(object):
 		self.bc_r = self.bc_assets/self.bc_worth
 		self.usd_r = self.usd_assets/self.usd_worth
 
-		KR_usd = total_assets[0]
-		CB_usd = total_assets[2]
-		KR_bt = total_assets[1]
-		CB_bt = total_assets[3]
+		buyer_b = get_balance(exchange=ex_buy)
+		seller_b = get_balance(exchange=ex_sell) 
+		buyer_usd_b = buyer_b[0]
+		buyer_bt_b = buyer_b[1]
+		seller_usd_b = seller_b[0]
+		seller_bt_b = seller_b[1]
 		# OTHER EXCHANGE ASSET DATA
-		
-		for ex_pair in self.exchange_pair_list:
-			if ex_pair['exchanges'] == 'COIN-BS/KRK':
-				ex_pair['usd_balance_r'] = CB_usd / KR_usd
-			# OTHER EXCHANGE PAIRS
-
-
-
-		ex_buy = input_spread[3]
-		ex_sell = input_spread[4]
+		ex_pair[ex_pair]['usd_balance_r'] == buyer_b / seller_b
+		# OTHER EXCHANGE PAIRS
 
 		# default trade is 6% of payable assets in any one market 
 		volume = .00
-		# baseline is the least amout of profit (in USD) accepted for a trade
-		baseline =.25															# Maybe make a member var of the class
 
-		##################   IF UNBALANCED ACCOUNTS   ##########################
-		for ex_pair in self.exchange_pair_list:
+		##################   MANAGE UNBALANCED ACCOUNTS   ##########################
 
 
-			usd_balance_r = ex_pair['usd_balance_r']
-			# Coin Base has more USD 
-			if (usd_balance_r > 2.285):
+		usd_balance_r = ex_pair[ex_pair]['usd_balance_r']
+		# BUYINF EXCHANGE HAS MORE USD 
+		if (usd_balance_r > 2.285):
 
-				difference = CB_usd - KR_usd
-				amount_usd = difference / 2
-				# REVERSE TRADE TO EVEN OUT ACCOUTS, BITCH
-				
-				### TODO: MAKE LAST TRADE DYNAMIC TO THE PAIR_DICT
-				if ex_buy == self.last_trade[1] and ex_sell == self.last_trade[0]:
-					
-					# WARNING! THIS COULD MAKE HIGH VOLUME TRADES 
-					amount = amount_usd/buying_price
-					self.last_trade(ex_buy, ex_sell, buying_price, selling_price)
-					trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
+			difference = buyer_b - seller_b
+			amount_usd = difference / 2
+			last_ex_buy = self.exchange_pair_list[ex_pair]['last_trade']['buy']['buyer']
+			last_ex_sell = self.exchange_pair_list[ex_pair]['last_trade']['sell']['seller']
+			last_buy_price = self.exchange_pair_list[ex_pair]['last_trade']['buy']['price']
+			last_sell_price = self.exchange_pair_list[ex_pair]['last_trade']['sell']['price']
+			# REVERSE TRADE TO EVEN OUT ACCOUTS, BITCH
+			if ex_buy == last_ex_sell and ex_sell == last_ex_buy:
+				print('Reverse Trade Started')
+				# WARNING! THIS COULD MAKE HIGH VOLUME TRADES 
+				amount = amount_usd/buyingMKT_price
+				trade = makeTrade(ex_buy, ex_sell, amount, buyingMKT_price, sellingMKT_price)
+				return
+			
+			# BUYING MARKET HAS NOT CHANGED 
+			# If exchange with more USD can buy BTC for below last trade buy price to even out accounts and make some moneyyy
+			elif buyingMKT_price > last_sell_price: 
+				amount = buyer_bt_b / 2
+				sell = makeSell(ex_buy, amount)
+				print('Buying Exchange Balance Evened')
+				if sellingMKT_price < last_buy_price:
+				 	amount = (seller_usd_b / 2) / sellingMKT_price
+					buy = makeBuy(ex_sell, amount) 
+					print('Selling Exchange Balance Evened')
 					return
-				
-				
-			# KRK has more USD
-			elif (usd_balance_r < .35):
-
-				difference = KR_usd - CB_usd
-				amount_usd = difference / 2
-				if ex_buy == self.last_trade[1] and ex_sell == self.last_trade[0]:
-					
-					# WARNING! THIS COULD MAKE HIGH VOLUME TRADES 
-					amount = amount_usd/buying_price
-					self.last_trade(ex_buy, ex_sell, buying_price, selling_price)
-					trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
+				else:
+					print('WARNING! Buying Exchange Balance UNEVEN!')
 					return
+			
+			print('WARNING! Uneven Balance for this exchange pair not managed')	 	
+			return
+		
+		
+		# SELLING EXCHANGE HAS MORE USD
+		elif (usd_balance_r < .35):
+
+			difference = seller_b - buyer_b
+			amount_usd = difference / 2
+			last_ex_buy = self.exchange_pair_list[ex_pair]['last_trade']['buy']['buyer']
+			last_ex_sell = self.exchange_pair_list[ex_pair]['last_trade']['sell']['seller']
+			last_buy_price = self.exchange_pair_list[ex_pair]['last_trade']['buy']['price']
+			last_sell_price = self.exchange_pair_list[ex_pair]['last_trade']['sell']['price']
+			if ex_buy == last_ex_sell and ex_sell == last_ex_buy:
+				print('Reverse Trade Started')
+				# WARNING! THIS COULD MAKE HIGH VOLUME TRADES 
+				amount = amount_usd/buyingMKT_price
+				trade = makeTrade(ex_buy, ex_sell, amount, buyingMKT_price, sellingMKT_price)
+				return
+			# SELLING MARKET HAS NOT CHANGED
+			# If exchange with more USD can buy BTC for below last trade buy price to even out accounts and make some moneyyy
+			elif sellingMKT_price < last_buy_price:
+				amount = (seller_usd_b / 2) / sellingMKT_price
+				buy = makeBuy(ex_sell, amount) 					# NOW SELLING EXCHANGE IS EVENED OUT
+				print('Selling Exchange Balance Evened')
+				#Check if buying exchange can be evened to fully even out pair of exchanges 
+				if buyingMKT_price > last_sell_price:
+					amount = buyer_bt_b / 2
+				 	sell = makeSell(ex_buy, amount)
+				 	print('Buying Exchange Balance Evened')
+					return
+				else:
+					print('WARNING! Buying Exchange Balance UNEVEN!')
+					return
+			
+			print('WARNING! Uneven Balance for this exchange pair not managed')	 	
+			return
+
 
 		####################################################################
-
+		################        REGULAR PROCEDURE        ###################
 
 		# we have more bitcoin than we should and spread looks GREAT. 
 		if(self.bc_r > .4 and self.usd_assets > self.usd_base and spread_r > .016):
 			volume = .40
-			amount_usd = KR_usd * volume
-			amount = amount_usd/buying_price
-			self.last_trade = (ex_buy, ex_sell, buying_price, selling_price)
-			trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
+			amount_usd = buyer_b * volume
+			amount = amount_usd/buyingMKT_price
+			trade = makeTrade(ex_buy, ex_sell, amount, buyingMKT_price, sellingMKT_price)
 			return
 			  
 
 		# probably some logic in here to determine how much we wanna buy
 		if(self.bc_r > .25 and self.usd_assets > self.usd_base and spread_r > 0.01):
 			volume = .20
-			amount_usd = KR_usd * volume
-			amount = amount_usd/buying_price
-			self.last_trade = (ex_buy, ex_sell, buying_price, selling_price)
-			trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
+			amount_usd = buyer_b * volume
+			amount = amount_usd/buyingMKT_price
+			trade = makeTrade(ex_buy, ex_sell, amount, buyingMKT_price, sellingMKT_price)
 			return
 		
 		# Same ol shit
 		if(self.bc_r > .10 and self.usd_assets > self.usd_base and spread_r > 0.004):
 			volume = .10
-			amount_usd = KR_usd * volume
-			amount = amount_usd/buying_price
-			self.last_trade = (ex_buy, ex_sell, buying_price, selling_price)
-			trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
+			amount_usd = buyer_b * volume
+			amount = amount_usd/buyingMKT_price
+			trade = makeTrade(ex_buy, ex_sell, amount, buyingMKT_price, sellingMKT_price)
 			return
 
-	# def makeTrade():
-	# 	#sell('KRK', .01, 'BTC')
-	def makeTrade(buyer, seller, amount, buying_price, selling_price, baseline):
-		
+		#####################################################################
+
+	def makeTrade(buyer, seller, amount, buying_price, selling_price):
+
 		#CHECK FEES AGAINST profit
 		# coinbase has a buy / sell fee of 1%
 		spread = selling_price - buying_price	
@@ -198,11 +221,16 @@ class Trader(object):
 		total_fee = buy_fee + sell_fee
 
 		# Never make a trade that profits less than 25 cents
-		if (spread - total_fee) < baseline:
+		if (spread - total_fee) < self.baseline:
 			print('\n - - -  PROFIT LESS THAN BASELINE  - - -  \n - - -  TRADE ABORTED  - - - \n\n')
 			return False
 		# Make a trade and get rich
 		else:
+			self.exchange_pair_list[ex_pair]['last_trade']['buy']['buyer'] = buyer
+			self.exchange_pair_list[ex_pair]['last_trade']['buy']['price'] = buying_price
+			self.exchange_pair_list[ex_pair]['last_trade']['sell']['seller'] = seller
+			self.exchange_pair_list[ex_pair]['last_trade']['sell']['price'] = selling_price
+
 			buy = buy(buyer, amount, 'BTC')
 			sell = sell(seller, amount, 'BTC')
 
@@ -220,7 +248,3 @@ class Trader(object):
 	def makeSell(exchange, amount):
 
 		sell(exchange, amount, 'BTC')
-
-
-trade = Trader()
-trade.get_spread_info()
