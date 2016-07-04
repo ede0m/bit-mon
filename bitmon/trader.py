@@ -6,7 +6,6 @@ sys.path.append("..")
 import masterDBcontroller
 
 
-
 class Trader(object):
 
 	def __init__(self):
@@ -14,56 +13,55 @@ class Trader(object):
 		usd_assets = 0 # this is the current us dollar balance accross the three markets?
 		bc_worth = 1 # TOTAL ASSETS (BTC and USD across all markets) represented in BTC
 		usd_worth = 1 # # TOTAL ASSETS (BTC and USD across all markets) represented in USD
-		bc_base = 0 # baseline for bc
-		usd_base = 0 # baseline for us dollars
+		bc_base = .1 # baseline for bc
+		usd_base = 50 # baseline for us dollars
 		bc_r = 0 # percentage of our net worth that is liquid bitcoin
 		usd_r = 0 # percentage of our net worth that is liquid us dollars
+		last_trade = None
+		exchange_pair_list = [{'exchanges':'COIN-BS/KRK','usd_balance_r':'','last_trade':{'buy':{'buyer':'','price':''},'sell':{'seller':'','price':''}}}
 
 
 
-	# MAYBE MOVE THIS TO MAIN, call return from Trader.trade_decision()
-	# a combination of buy and sell can determine if we trade (do both) 
-	initiateTrade = {
-		"S" : "", # sell shit
-		"B" : "", # buy shit
-		"SB" : "", # TRADE shit
-		"T" : "" # transfer
-	}		 
+								]
+
+ 
 
 	# Returns profit ratio from best spread between any 2 markets
 	def get_spread_info(self):
-		best_buy = 0
-		best_sell = 0
-		exchange_buy = ''
-		exchange_sell = ''
+		lasts = []
+		
+		# GET ALL LAST INFO FROM EACH EXCHANGE
+		lasts.append(masterDBcontroller.getLast('COIN-BS'))
+		lasts.append(masterDBcontroller.getLast("KRK"))
+
+		# why only kraken exchange??
+		date = masterDBcontroller.getLast('KRK')[2]
+
+		ex_buy = ''
+		ex_sell = ''
+		ex_pair = ''
+		my_buy = lasts[0][0]
+		my_sell = lasts[0][0]
+		for last_val in lasts:
+			if last_val[0] <= my_buy:
+				my_buy = last_val[0]
+				ex_buy = last_val[3]
+			if last_val[0] >= my_sell:
+				my_sell = last_val[0]
+				ex_sell = last_val[3]
+
+		if (ex_buy == 'COIN-BS' or ex_buy == 'KRK') and (ex_sell == 'COIN-BS' or ex_sell == 'KRK'):
+			ex_pair = 'COIN-BS/KRK'
 
 
-		bc_last = float(masterDBcontroller.getLast("COIN-BS")[0])
-		krk_last = float(masterDBcontroller.getLast("KRK")[0])
-
-		date = masterDBcontroller.getLast("KRK")[2]
-
-		if (bc_last - krk_last) < 0 :
-			exchange_buy = "COIN-BS"
-			best_buy = bc_last
-			exchange_sell = "KRK"
-			best_sell = krk_last
-		else:
-			exchange_buy = "KRK"
-			best_buy = krk_last
-			exchange_sell = "COIN-BS"
-			best_sell = bc_last
-			
-
-		# print(bc_last)
-		# print(krk_last)
-
-		profit_r = (best_sell - best_buy) / best_buy
-		res = (best_buy, best_sell, profit_r, exchange_buy, exchange_sell)
-		print(res)
+		profit_r = ((my_sell - my_buy) / my_buy)
+		
 		temp_best_spread = masterDBcontroller.getBestSpread()
+		# what is this for?
 		if(profit_r >= temp_best_spread):
 			masterDBcontroller.setBestSpread(profit_r, date)
+		res = (my_buy, my_sell, profit_r, ex_buy, ex_sell, ex_pair)
+		print(res)
 		return res
 
 
@@ -78,6 +76,7 @@ class Trader(object):
 		selling_price = input_spread[1]
 		spread = (selling_price - buying_price)
 		spread_r = input_spread[2]
+		exchange_pair = input_spread[5]
 		
 		total_assets = get_balance()
 		print(total_assets)
@@ -93,55 +92,88 @@ class Trader(object):
 		CB_usd = total_assets[2]
 		KR_bt = total_assets[1]
 		CB_bt = total_assets[3]
+		# OTHER EXCHANGE ASSET DATA
+		
+		for ex_pair in self.exchange_pair_list:
+			if ex_pair['exchanges'] == 'COIN-BS/KRK':
+				ex_pair['usd_balance_r'] = CB_usd / KR_usd
+			# OTHER EXCHANGE PAIRS
+
+
 
 		ex_buy = input_spread[3]
 		ex_sell = input_spread[4]
 
-		buy = "" # variable controlling if we buy
-		sell = "" # variable controlling if we sell
-
 		# default trade is 6% of payable assets in any one market 
-		volume = .06
+		volume = .00
 		# baseline is the least amout of profit (in USD) accepted for a trade
-		baseline =.25
+		baseline =.25															# Maybe make a member var of the class
+
+		##################   IF UNBALANCED ACCOUNTS   ##########################
+		for ex_pair in self.exchange_pair_list:
+
+
+			usd_balance_r = ex_pair['usd_balance_r']
+			# Coin Base has more USD 
+			if (usd_balance_r > 2.285):
+
+				difference = CB_usd - KR_usd
+				amount_usd = difference / 2
+				# REVERSE TRADE TO EVEN OUT ACCOUTS, BITCH
+				
+				### TODO: MAKE LAST TRADE DYNAMIC TO THE PAIR_DICT
+				if ex_buy == self.last_trade[1] and ex_sell == self.last_trade[0]:
+					
+					# WARNING! THIS COULD MAKE HIGH VOLUME TRADES 
+					amount = amount_usd/buying_price
+					self.last_trade(ex_buy, ex_sell, buying_price, selling_price)
+					trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
+					return
+				
+				
+			# KRK has more USD
+			elif (usd_balance_r < .35):
+
+				difference = KR_usd - CB_usd
+				amount_usd = difference / 2
+				if ex_buy == self.last_trade[1] and ex_sell == self.last_trade[0]:
+					
+					# WARNING! THIS COULD MAKE HIGH VOLUME TRADES 
+					amount = amount_usd/buying_price
+					self.last_trade(ex_buy, ex_sell, buying_price, selling_price)
+					trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
+					return
+
+		####################################################################
 
 
 		# we have more bitcoin than we should and spread looks GREAT. 
-		if(bc_r > .4 and bc_assets >= bc_base and spread_r > .016):
+		if(self.bc_r > .4 and self.usd_assets > self.usd_base and spread_r > .016):
 			volume = .40
 			amount_usd = KR_usd * volume
 			amount = amount_usd/buying_price
+			self.last_trade = (ex_buy, ex_sell, buying_price, selling_price)
 			trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
-
-		# # we have more than 60% of our funds in USD, buy bitcoin
-		# if(usd_r > .6 and usd_assets >= usd_base and spread_r > .015):
+			return
 			  
 
 		# probably some logic in here to determine how much we wanna buy
-		if(bc_r > .25 and bc_assets > bc_base and spread_r > 0.01):
+		if(self.bc_r > .25 and self.usd_assets > self.usd_base and spread_r > 0.01):
 			volume = .20
 			amount_usd = KR_usd * volume
 			amount = amount_usd/buying_price
+			self.last_trade = (ex_buy, ex_sell, buying_price, selling_price)
 			trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
-		
-		# # probs some logic shit
-		# if(usd_r > .2 and usd_r <= .4 and usd_assets > usd_base and buying_price, selling_price > 0.025):
-		# 	buy = "B"
+			return
 		
 		# Same ol shit
-		if(bc_r > .10 and bc_assets > bc_base and spread_r > 0.004):
+		if(self.bc_r > .10 and self.usd_assets > self.usd_base and spread_r > 0.004):
 			volume = .10
 			amount_usd = KR_usd * volume
 			amount = amount_usd/buying_price
+			self.last_trade = (ex_buy, ex_sell, buying_price, selling_price)
 			trade = makeTrade(ex_buy, ex_sell, amount, buying_price, selling_price, baseline)
-
-		
-		# # Some shit maybe?
-		# if(usd_r < .2 and usd_assets > usd_base and spread > 0.035):
-		# 	buy = "B"
-		# # shit
-		
-		# return sell + buy
+			return
 
 	# def makeTrade():
 	# 	#sell('KRK', .01, 'BTC')
@@ -188,5 +220,7 @@ class Trader(object):
 	def makeSell(exchange, amount):
 
 		sell(exchange, amount, 'BTC')
-trader = Trader()
-trader.get_spread_info()
+
+
+trade = Trader()
+trade.get_spread_info()
