@@ -85,7 +85,7 @@ def getLast(exchange):
     last_split = last.split("--")
     last_num = last_split[0]
     # print(last_num)
-    res = (last_num, last_raw_data_key, last_key)
+    res = (float(last_num), last_raw_data_key, last_key, exchange)
     print(res)
     return res
 
