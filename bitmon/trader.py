@@ -48,11 +48,13 @@ class Trader(object):
 			best_buy = bc_last
 			exchange_sell = "KRK"
 			best_sell = krk_last
+			print("buy 1", best_buy)
 		else:
 			exchange_buy = "KRK"
 			best_buy = krk_last
 			exchange_sell = "COIN-BS"
 			best_sell = bc_last
+			print("buy 2", best_buy)
 			
 
 		# print(bc_last)
