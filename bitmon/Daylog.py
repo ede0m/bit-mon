@@ -63,29 +63,30 @@ class Daylog(object):
 		while count <= 24:
 			#update snap vars
 			data = get_data(self.exchange)
-			sell_high = data[1]
-			buy_low = data[0]
-			spread = data[1] - data[0]
-			last = data[2]
-			
-			#Update snapshot return vars 
-			if sell_high > mx_sell:
-				mx_sell = sell_high
-			elif buy_low < mn_buy:
-				mn_buy = buy_low
-			
-			#Update daily high low data
-			if self.d_high < last:
-				self.d_high = last
-			elif self.d_low > last:
-				self.d_low = last
- 
-			
-			print('-----------------')
-			print('-  ' + str(buy_low) +'--BUY')
-			print('-  ' + str(sell_high) + '--SELL')
-			print('-  ' + str(spread) + '--SPREAD')
-			print('-  ' + str(last) + '--LAST')
+			if(data != None):
+				sell_high = data[1]
+				buy_low = data[0]
+				spread = data[1] - data[0]
+				last = data[2]
+				
+				#Update snapshot return vars 
+				if sell_high > mx_sell:
+					mx_sell = sell_high
+				elif buy_low < mn_buy:
+					mn_buy = buy_low
+				
+				#Update daily high low data
+				if self.d_high < last:
+					self.d_high = last
+				elif self.d_low > last:
+					self.d_low = last
+	 
+				
+				print('-----------------')
+				print('-  ' + str(buy_low) +'--BUY')
+				print('-  ' + str(sell_high) + '--SELL')
+				print('-  ' + str(spread) + '--SPREAD')
+				print('-  ' + str(last) + '--LAST')
 
 
 			time.sleep(ratio)

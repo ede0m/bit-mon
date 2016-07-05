@@ -8,7 +8,7 @@ def merge():
 	global db
 	with open(os.path.join(os.path.dirname(__file__),"master_db.json"),'r') as data_file:
 		db = json.load(data_file);
-	with open(os.path.join(os.path.dirname("/home/garritt/CODE/bitcoin/bit-mon/bitmon/"),"KN_db.json"),'r') as data_file:
+	with open(os.path.join(os.path.dirname("/Users/Cormick/Python/Bitmine/bitmon2/bit-mon/bitmon/"),"KN_db.json"),'r') as data_file:
 		KN_temp = json.load(data_file)
 		# print(json.dumps(CB_temp, indent=4, sort_keys=True))
 		KN_keys = list(KN_temp.keys())
@@ -42,7 +42,7 @@ def merge():
 							if time not in db["KRK"][key][date]:
 								db['KRK'][key][date][time] = KN_temp[key][date][time]
 
-	with open(os.path.join(os.path.dirname("/home/garritt/CODE/bitcoin/bit-mon/bitmon/"),"CB_db.json"),'r') as data_file:
+	with open(os.path.join(os.path.dirname("/Users/Cormick/Python/Bitmine/bitmon2/bit-mon/bitmon/"),"CB_db.json"),'r') as data_file:
 		CB_temp = json.load(data_file)
 		# print(json.dumps(CB_temp, indent=4, sort_keys=True))
 		CB_keys = list(CB_temp.keys())

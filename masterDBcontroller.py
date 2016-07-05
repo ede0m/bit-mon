@@ -32,7 +32,9 @@ def setBestSpread(new, date):
         data_file.write(json.dumps(db, indent=4, sort_keys=True))
 
 def getLast(exchange):
+    global db
     merger.merge()
+    # print(json.dumps(db, indent=4, sort_keys=True))
     snapshots_keys = list(db[exchange]['snapshots'].keys())
     last_key = snapshots_keys[0]
     for i in snapshots_keys:
@@ -91,7 +93,7 @@ def getLast(exchange):
 
 
 load()
-getLast("KRK")
+
 
 
 	

@@ -198,7 +198,99 @@
                     "time": "time 21:04:29\n"
                 }
             },
-            "07/03/2016": {}
+            "07/03/2016": {},
+            "07/04/2016": {
+                "20-03-23": {
+                    "buy_low": "buy low: 688.59\n",
+                    "entry": "entry 1\n",
+                    "high": "high: 681.77\n",
+                    "low": "low: 681.76\n",
+                    "range": "range: 0.01\n",
+                    "sell_high": "sell high: 674.94\n",
+                    "spread": "spread: -13.65\n",
+                    "time": "time 20:03:23\n"
+                },
+                "20-24-15": {
+                    "buy_low": "buy low: 687.20\n",
+                    "entry": "entry 0\n",
+                    "high": "high: 680.96\n",
+                    "low": "low: 680.75\n",
+                    "range": "range: 0.21\n",
+                    "sell_high": "sell high: 680.75\n",
+                    "spread": "spread: -7.24\n",
+                    "time": "time 20:24:15\n"
+                },
+                "20-49-35": {
+                    "buy_low": "buy low: 687.05\n",
+                    "entry": "entry 1\n",
+                    "high": "high: 681.00\n",
+                    "low": "low: 680.24\n",
+                    "range": "range: 0.76\n",
+                    "sell_high": "sell high: 680.19\n",
+                    "spread": "spread: -13.61\n",
+                    "time": "time 20:49:35\n"
+                },
+                "20-54-23": {
+                    "buy_low": "buy low: 680.80\n",
+                    "entry": "entry 2\n",
+                    "high": "high: 680.85\n",
+                    "low": "low: 680.79\n",
+                    "range": "range: 0.06\n",
+                    "sell_high": "sell high: 674.09\n",
+                    "spread": "spread: -13.62\n",
+                    "time": "time 20:54:23\n"
+                },
+                "21-04-17": {
+                    "buy_low": "buy low: 680.78\n",
+                    "entry": "entry 4\n",
+                    "high": "high: 680.79\n",
+                    "low": "low: 680.74\n",
+                    "range": "range: 0.05\n",
+                    "sell_high": "sell high: 673.96\n",
+                    "spread": "spread: -13.62\n",
+                    "time": "time 21:04:17\n"
+                },
+                "21-19-25": {
+                    "buy_low": "buy low: 687.01\n",
+                    "entry": "entry 7\n",
+                    "high": "high: 680.29\n",
+                    "low": "low: 680.18\n",
+                    "range": "range: 0.11\n",
+                    "sell_high": "sell high: 673.52\n",
+                    "spread": "spread: -13.61\n",
+                    "time": "time 21:19:25\n"
+                },
+                "21-24-44": {
+                    "buy_low": "buy low: 687.01\n",
+                    "entry": "entry 8\n",
+                    "high": "high: 680.33\n",
+                    "low": "low: 680.09\n",
+                    "range": "range: 0.24\n",
+                    "sell_high": "sell high: 673.52\n",
+                    "spread": "spread: -13.58\n",
+                    "time": "time 21:24:44\n"
+                },
+                "21-29-36": {
+                    "buy_low": "buy low: 680.16\n",
+                    "entry": "entry 9\n",
+                    "high": "high: 680.29\n",
+                    "low": "low: 680.15\n",
+                    "range": "range: 0.14\n",
+                    "sell_high": "sell high: 680.04\n",
+                    "spread": "spread: -13.61\n",
+                    "time": "time 21:29:36\n"
+                },
+                "21-35-29": {
+                    "buy_low": "buy low: 686.80\n",
+                    "entry": "entry 10\n",
+                    "high": "high: 680.16\n",
+                    "low": "low: 680.14\n",
+                    "range": "range: 0.02\n",
+                    "sell_high": "sell high: 680.11\n",
+                    "spread": "spread: -13.50\n",
+                    "time": "time 21:35:29\n"
+                }
+            }
         },
         "snapshots": {
             "07/01/2016": {
@@ -383,6 +475,968 @@
                     "last": "661.26--LAST\n",
                     "sell": "655.16--SELL\n",
                     "spread": "-13.40--SPREAD\n"
+                }
+            },
+            "07/04/2016": {
+                "19-53-33": {
+                    "buy": "688.45--BUY\n",
+                    "last": "681.63--LAST\n",
+                    "sell": "674.79--SELL\n",
+                    "spread": "-13.66--SPREAD\n"
+                },
+                "19-53-57": {
+                    "buy": "688.45--BUY\n",
+                    "last": "681.69--LAST\n",
+                    "sell": "674.85--SELL\n",
+                    "spread": "-13.80--SPREAD\n"
+                },
+                "19-54-34": {
+                    "buy": "688.51--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.73--SPREAD\n"
+                },
+                "19-55-09": {
+                    "buy": "688.66--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.72--SPREAD\n"
+                },
+                "19-55-31": {
+                    "buy": "688.65--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.71--SPREAD\n"
+                },
+                "19-56-03": {
+                    "buy": "688.65--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.71--SPREAD\n"
+                },
+                "19-56-54": {
+                    "buy": "688.66--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.95--SELL\n",
+                    "spread": "-13.71--SPREAD\n"
+                },
+                "19-57-25": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.95--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "19-57-47": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "19-58-10": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "19-58-58": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "19-59-35": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "19-59-56": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-00-21": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-00-42": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-01-10": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-01-48": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-02-17": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-02-41": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-03-23": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-03-55": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-04-25": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-04-55": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-05-25": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-06-02": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "681.76--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-06-44": {
+                    "buy": "681.77--BUY\n",
+                    "last": "681.77--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-07-16": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-07-38": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-08-07": {
+                    "buy": "688.59--BUY\n",
+                    "last": "681.76--LAST\n",
+                    "sell": "674.94--SELL\n",
+                    "spread": "-13.66--SPREAD\n"
+                },
+                "20-19-21": {
+                    "buy": "687.77--BUY\n",
+                    "last": "680.96--LAST\n",
+                    "sell": "674.15--SELL\n",
+                    "spread": "-13.92--SPREAD\n"
+                },
+                "20-19-50": {
+                    "buy": "687.77--BUY\n",
+                    "last": "680.96--LAST\n",
+                    "sell": "673.85--SELL\n",
+                    "spread": "-13.92--SPREAD\n"
+                },
+                "20-20-22": {
+                    "buy": "680.90--BUY\n",
+                    "last": "680.93--LAST\n",
+                    "sell": "680.60--SELL\n",
+                    "spread": "-14.05--SPREAD\n"
+                },
+                "20-20-50": {
+                    "buy": "687.57--BUY\n",
+                    "last": "680.84--LAST\n",
+                    "sell": "673.94--SELL\n",
+                    "spread": "-14.04--SPREAD\n"
+                },
+                "20-21-39": {
+                    "buy": "687.57--BUY\n",
+                    "last": "680.76--LAST\n",
+                    "sell": "680.33--SELL\n",
+                    "spread": "-14.18--SPREAD\n"
+                },
+                "20-22-21": {
+                    "buy": "687.57--BUY\n",
+                    "last": "680.75--LAST\n",
+                    "sell": "680.75--SELL\n",
+                    "spread": "-13.63--SPREAD\n"
+                },
+                "20-22-55": {
+                    "buy": "687.57--BUY\n",
+                    "last": "680.91--LAST\n",
+                    "sell": "673.96--SELL\n",
+                    "spread": "-13.83--SPREAD\n"
+                },
+                "20-23-23": {
+                    "buy": "687.58--BUY\n",
+                    "last": "680.75--LAST\n",
+                    "sell": "673.96--SELL\n",
+                    "spread": "-13.75--SPREAD\n"
+                },
+                "20-23-51": {
+                    "buy": "687.57--BUY\n",
+                    "last": "680.76--LAST\n",
+                    "sell": "673.93--SELL\n",
+                    "spread": "-14.30--SPREAD\n"
+                },
+                "20-24-15": {
+                    "buy": "687.20--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "673.27--SELL\n",
+                    "spread": "-14.30--SPREAD\n"
+                },
+                "20-24-45": {
+                    "buy": "687.07--BUY\n",
+                    "last": "679.35--LAST\n",
+                    "sell": "672.92--SELL\n",
+                    "spread": "-14.48--SPREAD\n"
+                },
+                "20-25-23": {
+                    "buy": "686.62--BUY\n",
+                    "last": "679.93--LAST\n",
+                    "sell": "672.58--SELL\n",
+                    "spread": "-14.04--SPREAD\n"
+                },
+                "20-25-50": {
+                    "buy": "686.55--BUY\n",
+                    "last": "679.75--LAST\n",
+                    "sell": "672.59--SELL\n",
+                    "spread": "-14.01--SPREAD\n"
+                },
+                "20-26-19": {
+                    "buy": "686.60--BUY\n",
+                    "last": "679.89--LAST\n",
+                    "sell": "672.74--SELL\n",
+                    "spread": "-14.13--SPREAD\n"
+                },
+                "20-39-15": {
+                    "buy": "687.03--BUY\n",
+                    "last": "680.01--LAST\n",
+                    "sell": "673.07--SELL\n",
+                    "spread": "-14.03--SPREAD\n"
+                },
+                "20-39-48": {
+                    "buy": "687.10--BUY\n",
+                    "last": "680.61--LAST\n",
+                    "sell": "673.25--SELL\n",
+                    "spread": "-14.34--SPREAD\n"
+                },
+                "20-40-12": {
+                    "buy": "687.48--BUY\n",
+                    "last": "680.61--LAST\n",
+                    "sell": "673.69--SELL\n",
+                    "spread": "-13.90--SPREAD\n"
+                },
+                "20-40-35": {
+                    "buy": "687.45--BUY\n",
+                    "last": "680.61--LAST\n",
+                    "sell": "673.82--SELL\n",
+                    "spread": "-13.63--SPREAD\n"
+                },
+                "20-41-03": {
+                    "buy": "687.45--BUY\n",
+                    "last": "680.63--LAST\n",
+                    "sell": "673.82--SELL\n",
+                    "spread": "-13.63--SPREAD\n"
+                },
+                "20-41-39": {
+                    "buy": "687.39--BUY\n",
+                    "last": "680.63--LAST\n",
+                    "sell": "673.82--SELL\n",
+                    "spread": "-13.91--SPREAD\n"
+                },
+                "20-42-10": {
+                    "buy": "687.58--BUY\n",
+                    "last": "680.76--LAST\n",
+                    "sell": "673.85--SELL\n",
+                    "spread": "-13.89--SPREAD\n"
+                },
+                "20-42-47": {
+                    "buy": "687.53--BUY\n",
+                    "last": "680.70--LAST\n",
+                    "sell": "673.89--SELL\n",
+                    "spread": "-14.13--SPREAD\n"
+                },
+                "20-43-15": {
+                    "buy": "687.71--BUY\n",
+                    "last": "680.73--LAST\n",
+                    "sell": "673.86--SELL\n",
+                    "spread": "-13.85--SPREAD\n"
+                },
+                "20-43-48": {
+                    "buy": "687.35--BUY\n",
+                    "last": "680.35--LAST\n",
+                    "sell": "673.34--SELL\n",
+                    "spread": "-14.37--SPREAD\n"
+                },
+                "20-44-12": {
+                    "buy": "687.05--BUY\n",
+                    "last": "680.25--LAST\n",
+                    "sell": "673.18--SELL\n",
+                    "spread": "-13.87--SPREAD\n"
+                },
+                "20-44-34": {
+                    "buy": "687.05--BUY\n",
+                    "last": "680.25--LAST\n",
+                    "sell": "673.44--SELL\n",
+                    "spread": "-13.78--SPREAD\n"
+                },
+                "20-45-04": {
+                    "buy": "687.05--BUY\n",
+                    "last": "680.24--LAST\n",
+                    "sell": "673.44--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "20-45-32": {
+                    "buy": "687.05--BUY\n",
+                    "last": "680.24--LAST\n",
+                    "sell": "673.44--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "20-46-00": {
+                    "buy": "687.05--BUY\n",
+                    "last": "680.25--LAST\n",
+                    "sell": "673.44--SELL\n",
+                    "spread": "-13.63--SPREAD\n"
+                },
+                "20-47-05": {
+                    "buy": "687.05--BUY\n",
+                    "last": "680.25--LAST\n",
+                    "sell": "673.42--SELL\n",
+                    "spread": "-14.08--SPREAD\n"
+                },
+                "20-47-59": {
+                    "buy": "687.09--BUY\n",
+                    "last": "680.34--LAST\n",
+                    "sell": "680.19--SELL\n",
+                    "spread": "-14.09--SPREAD\n"
+                },
+                "20-48-28": {
+                    "buy": "687.80--BUY\n",
+                    "last": "681.00--LAST\n",
+                    "sell": "673.73--SELL\n",
+                    "spread": "-14.07--SPREAD\n"
+                },
+                "20-48-52": {
+                    "buy": "687.74--BUY\n",
+                    "last": "681.00--LAST\n",
+                    "sell": "673.77--SELL\n",
+                    "spread": "-14.08--SPREAD\n"
+                },
+                "20-49-35": {
+                    "buy": "687.61--BUY\n",
+                    "last": "680.84--LAST\n",
+                    "sell": "673.80--SELL\n",
+                    "spread": "-13.84--SPREAD\n"
+                },
+                "20-49-56": {
+                    "buy": "687.61--BUY\n",
+                    "last": "680.80--LAST\n",
+                    "sell": "673.80--SELL\n",
+                    "spread": "-13.81--SPREAD\n"
+                },
+                "20-50-35": {
+                    "buy": "687.61--BUY\n",
+                    "last": "680.80--LAST\n",
+                    "sell": "674.07--SELL\n",
+                    "spread": "-13.74--SPREAD\n"
+                },
+                "20-50-57": {
+                    "buy": "687.81--BUY\n",
+                    "last": "681.00--LAST\n",
+                    "sell": "674.05--SELL\n",
+                    "spread": "-13.84--SPREAD\n"
+                },
+                "20-51-19": {
+                    "buy": "687.68--BUY\n",
+                    "last": "680.91--LAST\n",
+                    "sell": "674.09--SELL\n",
+                    "spread": "-13.89--SPREAD\n"
+                },
+                "20-51-45": {
+                    "buy": "687.61--BUY\n",
+                    "last": "680.91--LAST\n",
+                    "sell": "673.99--SELL\n",
+                    "spread": "-13.82--SPREAD\n"
+                },
+                "20-52-26": {
+                    "buy": "687.61--BUY\n",
+                    "last": "680.80--LAST\n",
+                    "sell": "673.98--SELL\n",
+                    "spread": "-13.63--SPREAD\n"
+                },
+                "20-52-49": {
+                    "buy": "687.61--BUY\n",
+                    "last": "680.85--LAST\n",
+                    "sell": "673.99--SELL\n",
+                    "spread": "-13.63--SPREAD\n"
+                },
+                "20-53-23": {
+                    "buy": "680.80--BUY\n",
+                    "last": "680.80--LAST\n",
+                    "sell": "673.99--SELL\n",
+                    "spread": "-13.67--SPREAD\n"
+                },
+                "20-53-55": {
+                    "buy": "687.59--BUY\n",
+                    "last": "680.79--LAST\n",
+                    "sell": "673.95--SELL\n",
+                    "spread": "-13.79--SPREAD\n"
+                },
+                "20-54-23": {
+                    "buy": "687.55--BUY\n",
+                    "last": "680.79--LAST\n",
+                    "sell": "673.80--SELL\n",
+                    "spread": "-13.76--SPREAD\n"
+                },
+                "20-54-50": {
+                    "buy": "687.55--BUY\n",
+                    "last": "680.79--LAST\n",
+                    "sell": "673.79--SELL\n",
+                    "spread": "-13.77--SPREAD\n"
+                },
+                "20-55-15": {
+                    "buy": "687.55--BUY\n",
+                    "last": "680.76--LAST\n",
+                    "sell": "673.93--SELL\n",
+                    "spread": "-13.72--SPREAD\n"
+                },
+                "20-55-45": {
+                    "buy": "687.55--BUY\n",
+                    "last": "680.75--LAST\n",
+                    "sell": "673.85--SELL\n",
+                    "spread": "-13.80--SPREAD\n"
+                },
+                "20-56-12": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.78--LAST\n",
+                    "sell": "673.95--SELL\n",
+                    "spread": "-13.64--SPREAD\n"
+                },
+                "20-56-57": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.74--LAST\n",
+                    "sell": "673.95--SELL\n",
+                    "spread": "-13.63--SPREAD\n"
+                },
+                "20-57-41": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.74--LAST\n",
+                    "sell": "673.93--SELL\n",
+                    "spread": "-13.65--SPREAD\n"
+                },
+                "20-58-09": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.77--LAST\n",
+                    "sell": "673.94--SELL\n",
+                    "spread": "-13.64--SPREAD\n"
+                },
+                "20-58-36": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.78--LAST\n",
+                    "sell": "673.94--SELL\n",
+                    "spread": "-13.67--SPREAD\n"
+                },
+                "20-59-03": {
+                    "buy": "687.59--BUY\n",
+                    "last": "680.78--LAST\n",
+                    "sell": "673.94--SELL\n",
+                    "spread": "-13.66--SPREAD\n"
+                },
+                "20-59-32": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.75--LAST\n",
+                    "sell": "673.94--SELL\n",
+                    "spread": "-13.63--SPREAD\n"
+                },
+                "20-59-55": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.74--LAST\n",
+                    "sell": "673.93--SELL\n",
+                    "spread": "-13.64--SPREAD\n"
+                },
+                "21-00-30": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.79--LAST\n",
+                    "sell": "673.93--SELL\n",
+                    "spread": "-13.67--SPREAD\n"
+                },
+                "21-00-56": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.75--LAST\n",
+                    "sell": "673.95--SELL\n",
+                    "spread": "-13.64--SPREAD\n"
+                },
+                "21-01-20": {
+                    "buy": "687.59--BUY\n",
+                    "last": "680.78--LAST\n",
+                    "sell": "673.96--SELL\n",
+                    "spread": "-13.63--SPREAD\n"
+                },
+                "21-01-53": {
+                    "buy": "687.59--BUY\n",
+                    "last": "680.79--LAST\n",
+                    "sell": "673.96--SELL\n",
+                    "spread": "-13.66--SPREAD\n"
+                },
+                "21-02-28": {
+                    "buy": "680.78--BUY\n",
+                    "last": "680.78--LAST\n",
+                    "sell": "673.95--SELL\n",
+                    "spread": "-13.64--SPREAD\n"
+                },
+                "21-03-03": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.76--LAST\n",
+                    "sell": "673.93--SELL\n",
+                    "spread": "-13.64--SPREAD\n"
+                },
+                "21-03-28": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.75--LAST\n",
+                    "sell": "673.92--SELL\n",
+                    "spread": "-13.64--SPREAD\n"
+                },
+                "21-03-52": {
+                    "buy": "687.56--BUY\n",
+                    "last": "680.75--LAST\n",
+                    "sell": "673.92--SELL\n",
+                    "spread": "-13.64--SPREAD\n"
+                },
+                "21-04-17": {
+                    "buy": "687.54--BUY\n",
+                    "last": "680.73--LAST\n",
+                    "sell": "673.92--SELL\n",
+                    "spread": "-13.87--SPREAD\n"
+                },
+                "21-04-46": {
+                    "buy": "687.54--BUY\n",
+                    "last": "680.73--LAST\n",
+                    "sell": "673.67--SELL\n",
+                    "spread": "-13.92--SPREAD\n"
+                },
+                "21-05-11": {
+                    "buy": "687.54--BUY\n",
+                    "last": "680.73--LAST\n",
+                    "sell": "680.42--SELL\n",
+                    "spread": "-14.05--SPREAD\n"
+                },
+                "21-05-40": {
+                    "buy": "687.41--BUY\n",
+                    "last": "680.30--LAST\n",
+                    "sell": "673.71--SELL\n",
+                    "spread": "-13.82--SPREAD\n"
+                },
+                "21-06-25": {
+                    "buy": "687.51--BUY\n",
+                    "last": "680.72--LAST\n",
+                    "sell": "680.57--SELL\n",
+                    "spread": "-13.85--SPREAD\n"
+                },
+                "21-07-01": {
+                    "buy": "687.42--BUY\n",
+                    "last": "680.72--LAST\n",
+                    "sell": "673.67--SELL\n",
+                    "spread": "-13.76--SPREAD\n"
+                },
+                "21-07-44": {
+                    "buy": "687.41--BUY\n",
+                    "last": "680.73--LAST\n",
+                    "sell": "673.84--SELL\n",
+                    "spread": "-13.83--SPREAD\n"
+                },
+                "21-08-11": {
+                    "buy": "687.32--BUY\n",
+                    "last": "680.54--LAST\n",
+                    "sell": "673.61--SELL\n",
+                    "spread": "-13.80--SPREAD\n"
+                },
+                "21-08-53": {
+                    "buy": "687.21--BUY\n",
+                    "last": "680.60--LAST\n",
+                    "sell": "673.75--SELL\n",
+                    "spread": "-13.85--SPREAD\n"
+                },
+                "21-09-24": {
+                    "buy": "680.52--BUY\n",
+                    "last": "680.73--LAST\n",
+                    "sell": "673.64--SELL\n",
+                    "spread": "-13.98--SPREAD\n"
+                },
+                "21-09-54": {
+                    "buy": "687.49--BUY\n",
+                    "last": "680.61--LAST\n",
+                    "sell": "673.88--SELL\n",
+                    "spread": "-13.66--SPREAD\n"
+                },
+                "21-10-19": {
+                    "buy": "680.68--BUY\n",
+                    "last": "680.71--LAST\n",
+                    "sell": "680.58--SELL\n",
+                    "spread": "-13.66--SPREAD\n"
+                },
+                "21-10-47": {
+                    "buy": "687.36--BUY\n",
+                    "last": "680.58--LAST\n",
+                    "sell": "673.80--SELL\n",
+                    "spread": "-13.63--SPREAD\n"
+                },
+                "21-11-21": {
+                    "buy": "687.13--BUY\n",
+                    "last": "680.54--LAST\n",
+                    "sell": "680.52--SELL\n",
+                    "spread": "-13.79--SPREAD\n"
+                },
+                "21-11-47": {
+                    "buy": "687.12--BUY\n",
+                    "last": "679.51--LAST\n",
+                    "sell": "673.34--SELL\n",
+                    "spread": "-14.41--SPREAD\n"
+                },
+                "21-12-23": {
+                    "buy": "686.64--BUY\n",
+                    "last": "679.57--LAST\n",
+                    "sell": "672.97--SELL\n",
+                    "spread": "-13.86--SPREAD\n"
+                },
+                "21-12-46": {
+                    "buy": "686.56--BUY\n",
+                    "last": "679.76--LAST\n",
+                    "sell": "672.85--SELL\n",
+                    "spread": "-13.72--SPREAD\n"
+                },
+                "21-13-09": {
+                    "buy": "686.56--BUY\n",
+                    "last": "679.76--LAST\n",
+                    "sell": "672.93--SELL\n",
+                    "spread": "-13.64--SPREAD\n"
+                },
+                "21-13-31": {
+                    "buy": "686.57--BUY\n",
+                    "last": "679.76--LAST\n",
+                    "sell": "672.93--SELL\n",
+                    "spread": "-13.64--SPREAD\n"
+                },
+                "21-14-02": {
+                    "buy": "686.57--BUY\n",
+                    "last": "679.74--LAST\n",
+                    "sell": "672.93--SELL\n",
+                    "spread": "-13.79--SPREAD\n"
+                },
+                "21-14-28": {
+                    "buy": "686.69--BUY\n",
+                    "last": "680.17--LAST\n",
+                    "sell": "673.26--SELL\n",
+                    "spread": "-13.93--SPREAD\n"
+                },
+                "21-14-53": {
+                    "buy": "687.15--BUY\n",
+                    "last": "680.18--LAST\n",
+                    "sell": "673.41--SELL\n",
+                    "spread": "-13.77--SPREAD\n"
+                },
+                "21-15-21": {
+                    "buy": "687.18--BUY\n",
+                    "last": "680.20--LAST\n",
+                    "sell": "673.41--SELL\n",
+                    "spread": "-13.78--SPREAD\n"
+                },
+                "21-15-56": {
+                    "buy": "687.18--BUY\n",
+                    "last": "680.30--LAST\n",
+                    "sell": "673.49--SELL\n",
+                    "spread": "-13.90--SPREAD\n"
+                },
+                "21-16-28": {
+                    "buy": "687.12--BUY\n",
+                    "last": "680.32--LAST\n",
+                    "sell": "673.52--SELL\n",
+                    "spread": "-13.62--SPREAD\n"
+                },
+                "21-16-51": {
+                    "buy": "687.07--BUY\n",
+                    "last": "680.11--LAST\n",
+                    "sell": "673.50--SELL\n",
+                    "spread": "-13.77--SPREAD\n"
+                },
+                "21-17-28": {
+                    "buy": "687.02--BUY\n",
+                    "last": "680.25--LAST\n",
+                    "sell": "673.38--SELL\n",
+                    "spread": "-13.75--SPREAD\n"
+                },
+                "21-17-57": {
+                    "buy": "687.13--BUY\n",
+                    "last": "680.33--LAST\n",
+                    "sell": "673.51--SELL\n",
+                    "spread": "-13.62--SPREAD\n"
+                },
+                "21-18-34": {
+                    "buy": "687.12--BUY\n",
+                    "last": "680.29--LAST\n",
+                    "sell": "673.51--SELL\n",
+                    "spread": "-13.93--SPREAD\n"
+                },
+                "21-19-00": {
+                    "buy": "687.07--BUY\n",
+                    "last": "680.29--LAST\n",
+                    "sell": "673.42--SELL\n",
+                    "spread": "-13.68--SPREAD\n"
+                },
+                "21-19-25": {
+                    "buy": "687.01--BUY\n",
+                    "last": "680.33--LAST\n",
+                    "sell": "673.41--SELL\n",
+                    "spread": "-13.93--SPREAD\n"
+                },
+                "21-19-58": {
+                    "buy": "687.02--BUY\n",
+                    "last": "680.14--LAST\n",
+                    "sell": "673.44--SELL\n",
+                    "spread": "-13.69--SPREAD\n"
+                },
+                "21-20-31": {
+                    "buy": "680.33--BUY\n",
+                    "last": "680.33--LAST\n",
+                    "sell": "673.52--SELL\n",
+                    "spread": "-13.78--SPREAD\n"
+                },
+                "21-21-06": {
+                    "buy": "687.13--BUY\n",
+                    "last": "680.33--LAST\n",
+                    "sell": "673.52--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "21-21-33": {
+                    "buy": "687.13--BUY\n",
+                    "last": "680.33--LAST\n",
+                    "sell": "673.52--SELL\n",
+                    "spread": "-13.63--SPREAD\n"
+                },
+                "21-22-06": {
+                    "buy": "687.13--BUY\n",
+                    "last": "680.33--LAST\n",
+                    "sell": "673.50--SELL\n",
+                    "spread": "-13.80--SPREAD\n"
+                },
+                "21-22-42": {
+                    "buy": "687.01--BUY\n",
+                    "last": "680.33--LAST\n",
+                    "sell": "673.52--SELL\n",
+                    "spread": "-13.86--SPREAD\n"
+                },
+                "21-23-12": {
+                    "buy": "687.04--BUY\n",
+                    "last": "680.09--LAST\n",
+                    "sell": "673.39--SELL\n",
+                    "spread": "-13.78--SPREAD\n"
+                },
+                "21-23-39": {
+                    "buy": "687.08--BUY\n",
+                    "last": "680.09--LAST\n",
+                    "sell": "673.47--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "21-24-13": {
+                    "buy": "687.08--BUY\n",
+                    "last": "680.09--LAST\n",
+                    "sell": "673.48--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "21-24-44": {
+                    "buy": "687.09--BUY\n",
+                    "last": "680.29--LAST\n",
+                    "sell": "673.51--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "21-25-22": {
+                    "buy": "687.10--BUY\n",
+                    "last": "680.29--LAST\n",
+                    "sell": "673.49--SELL\n",
+                    "spread": "-13.62--SPREAD\n"
+                },
+                "21-26-04": {
+                    "buy": "687.09--BUY\n",
+                    "last": "680.31--LAST\n",
+                    "sell": "673.50--SELL\n",
+                    "spread": "-13.68--SPREAD\n"
+                },
+                "21-26-28": {
+                    "buy": "680.29--BUY\n",
+                    "last": "680.21--LAST\n",
+                    "sell": "673.51--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "21-26-51": {
+                    "buy": "687.12--BUY\n",
+                    "last": "680.21--LAST\n",
+                    "sell": "673.51--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "21-27-21": {
+                    "buy": "687.06--BUY\n",
+                    "last": "680.32--LAST\n",
+                    "sell": "673.51--SELL\n",
+                    "spread": "-13.85--SPREAD\n"
+                },
+                "21-27-57": {
+                    "buy": "686.96--BUY\n",
+                    "last": "680.16--LAST\n",
+                    "sell": "673.34--SELL\n",
+                    "spread": "-13.62--SPREAD\n"
+                },
+                "21-28-21": {
+                    "buy": "680.16--BUY\n",
+                    "last": "680.16--LAST\n",
+                    "sell": "673.35--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "21-28-46": {
+                    "buy": "686.96--BUY\n",
+                    "last": "680.15--LAST\n",
+                    "sell": "673.35--SELL\n",
+                    "spread": "-13.76--SPREAD\n"
+                },
+                "21-29-12": {
+                    "buy": "680.16--BUY\n",
+                    "last": "680.16--LAST\n",
+                    "sell": "680.04--SELL\n",
+                    "spread": "-13.72--SPREAD\n"
+                },
+                "21-29-36": {
+                    "buy": "686.96--BUY\n",
+                    "last": "680.15--LAST\n",
+                    "sell": "673.34--SELL\n",
+                    "spread": "-13.84--SPREAD\n"
+                },
+                "21-30-09": {
+                    "buy": "686.96--BUY\n",
+                    "last": "680.16--LAST\n",
+                    "sell": "673.31--SELL\n",
+                    "spread": "-13.71--SPREAD\n"
+                },
+                "21-30-46": {
+                    "buy": "686.96--BUY\n",
+                    "last": "680.16--LAST\n",
+                    "sell": "673.36--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "21-31-20": {
+                    "buy": "686.95--BUY\n",
+                    "last": "679.87--LAST\n",
+                    "sell": "680.11--SELL\n",
+                    "spread": "-13.87--SPREAD\n"
+                },
+                "21-31-47": {
+                    "buy": "686.85--BUY\n",
+                    "last": "680.04--LAST\n",
+                    "sell": "673.24--SELL\n",
+                    "spread": "-13.75--SPREAD\n"
+                },
+                "21-32-29": {
+                    "buy": "686.93--BUY\n",
+                    "last": "680.15--LAST\n",
+                    "sell": "673.27--SELL\n",
+                    "spread": "-13.73--SPREAD\n"
+                },
+                "21-33-07": {
+                    "buy": "686.82--BUY\n",
+                    "last": "680.01--LAST\n",
+                    "sell": "679.86--SELL\n",
+                    "spread": "-13.88--SPREAD\n"
+                },
+                "21-33-46": {
+                    "buy": "686.94--BUY\n",
+                    "last": "680.14--LAST\n",
+                    "sell": "673.22--SELL\n",
+                    "spread": "-13.78--SPREAD\n"
+                },
+                "21-34-14": {
+                    "buy": "686.84--BUY\n",
+                    "last": "680.04--LAST\n",
+                    "sell": "673.24--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "21-34-53": {
+                    "buy": "686.84--BUY\n",
+                    "last": "680.15--LAST\n",
+                    "sell": "673.34--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
+                },
+                "21-35-29": {
+                    "buy": "686.80--BUY\n",
+                    "last": "680.13--LAST\n",
+                    "sell": "673.34--SELL\n",
+                    "spread": "-13.83--SPREAD\n"
+                },
+                "21-35-55": {
+                    "buy": "686.80--BUY\n",
+                    "last": "679.87--LAST\n",
+                    "sell": "672.99--SELL\n",
+                    "spread": "-13.92--SPREAD\n"
+                },
+                "21-36-25": {
+                    "buy": "686.88--BUY\n",
+                    "last": "680.14--LAST\n",
+                    "sell": "673.23--SELL\n",
+                    "spread": "-13.80--SPREAD\n"
+                },
+                "21-36-56": {
+                    "buy": "686.93--BUY\n",
+                    "last": "679.98--LAST\n",
+                    "sell": "679.94--SELL\n",
+                    "spread": "-13.66--SPREAD\n"
+                },
+                "21-37-25": {
+                    "buy": "686.92--BUY\n",
+                    "last": "680.12--LAST\n",
+                    "sell": "673.31--SELL\n",
+                    "spread": "-13.62--SPREAD\n"
+                },
+                "21-37-46": {
+                    "buy": "686.92--BUY\n",
+                    "last": "680.21--LAST\n",
+                    "sell": "673.36--SELL\n",
+                    "spread": "-13.72--SPREAD\n"
+                },
+                "21-38-16": {
+                    "buy": "687.08--BUY\n",
+                    "last": "680.21--LAST\n",
+                    "sell": "673.39--SELL\n",
+                    "spread": "-13.75--SPREAD\n"
+                },
+                "21-38-49": {
+                    "buy": "687.08--BUY\n",
+                    "last": "680.28--LAST\n",
+                    "sell": "673.47--SELL\n",
+                    "spread": "-13.61--SPREAD\n"
                 }
             }
         }
@@ -635,7 +1689,129 @@
                     "time": "time 21:04:30\n"
                 }
             },
-            "07/03/2016": {}
+            "07/03/2016": {},
+            "07/04/2016": {
+                "20-13-35": {
+                    "buy_low": "buy low: 678.29\n",
+                    "entry": "entry 3\n",
+                    "high": "high: 680.45\n",
+                    "low": "low: 680.45\n",
+                    "range": "range: 0.00\n",
+                    "sell_high": "sell high: 677.00\n",
+                    "spread": "spread: -1.74\n",
+                    "time": "time 20:13:35\n"
+                },
+                "20-18-38": {
+                    "buy_low": "buy low: 679.36\n",
+                    "entry": "entry 4\n",
+                    "high": "high: 680.45\n",
+                    "low": "low: 680.45\n",
+                    "range": "range: 0.00\n",
+                    "sell_high": "sell high: 676.70\n",
+                    "spread": "spread: -2.82\n",
+                    "time": "time 20:18:38\n"
+                },
+                "20-23-36": {
+                    "buy_low": "buy low: 678.00\n",
+                    "entry": "entry 5\n",
+                    "high": "high: 679.44\n",
+                    "low": "low: 676.46\n",
+                    "range": "range: 2.98\n",
+                    "sell_high": "sell high: 676.80\n",
+                    "spread": "spread: -1.55\n",
+                    "time": "time 20:23:36\n"
+                },
+                "20-33-41": {
+                    "buy_low": "buy low: 680.33\n",
+                    "entry": "entry 7\n",
+                    "high": "high: 676.46\n",
+                    "low": "low: 676.46\n",
+                    "range": "range: 0.00\n",
+                    "sell_high": "sell high: 676.48\n",
+                    "spread": "spread: -3.85\n",
+                    "time": "time 20:33:41\n"
+                },
+                "20-38-53": {
+                    "buy_low": "buy low: 680.44\n",
+                    "entry": "entry 8\n",
+                    "high": "high: 676.46\n",
+                    "low": "low: 676.46\n",
+                    "range": "range: 0.00\n",
+                    "sell_high": "sell high: 676.48\n",
+                    "spread": "spread: -3.96\n",
+                    "time": "time 20:38:53\n"
+                },
+                "20-48-48": {
+                    "buy_low": "buy low: 680.44\n",
+                    "entry": "entry 10\n",
+                    "high": "high: 676.46\n",
+                    "low": "low: 676.46\n",
+                    "range": "range: 0.00\n",
+                    "sell_high": "sell high: 676.46\n",
+                    "spread": "spread: -3.98\n",
+                    "time": "time 20:48:48\n"
+                },
+                "20-58-59": {
+                    "buy_low": "buy low: 680.39\n",
+                    "entry": "entry 12\n",
+                    "high": "high: 676.46\n",
+                    "low": "low: 676.46\n",
+                    "range": "range: 0.00\n",
+                    "sell_high": "sell high: 676.44\n",
+                    "spread": "spread: -3.95\n",
+                    "time": "time 20:58:59\n"
+                },
+                "21-04-15": {
+                    "buy_low": "buy low: 679.00\n",
+                    "entry": "entry 13\n",
+                    "high": "high: 680.39\n",
+                    "low": "low: 679.00\n",
+                    "range": "range: 1.39\n",
+                    "sell_high": "sell high: 679.00\n",
+                    "spread": "spread: -1.39\n",
+                    "time": "time 21:04:15\n"
+                },
+                "21-19-13": {
+                    "buy_low": "buy low: 680.00\n",
+                    "entry": "entry 16\n",
+                    "high": "high: 676.45\n",
+                    "low": "low: 676.45\n",
+                    "range": "range: 0.00\n",
+                    "sell_high": "sell high: 676.51\n",
+                    "spread": "spread: -3.53\n",
+                    "time": "time 21:19:13\n"
+                },
+                "21-24-21": {
+                    "buy_low": "buy low: 680.00\n",
+                    "entry": "entry 17\n",
+                    "high": "high: 676.45\n",
+                    "low": "low: 676.45\n",
+                    "range": "range: 0.00\n",
+                    "sell_high": "sell high: 676.48\n",
+                    "spread": "spread: -3.53\n",
+                    "time": "time 21:24:21\n"
+                },
+                "21-29-15": {
+                    "buy_low": "buy low: 680.00\n",
+                    "entry": "entry 18\n",
+                    "high": "high: 676.47\n",
+                    "low": "low: 676.47\n",
+                    "range": "range: 0.00\n",
+                    "sell_high": "sell high: 676.47\n",
+                    "spread": "spread: -3.53\n",
+                    "time": "time 21:29:15\n"
+                },
+                "21-34-25": {
+                    "buy_low": "buy low: 680.00\n",
+                    "entry": "entry 19\n",
+                    "high": "high: 680.00\n",
+                    "low": "low: 676.47\n",
+                    "range": "range: 3.53\n",
+                    "sell_high": "sell high: 680.00\n",
+                    "spread": "spread: -3.50\n",
+                    "time": "time 21:34:25\n"
+                }
+            }
         },
         "snapshots": {
             "07/01/2016": {
@@ -869,11 +2045,1262 @@
                     "sell": "657.23--SELL\n",
                     "spread": "-2.30--SPREAD\n"
                 }
+            },
+            "07/04/2016": {
+                "19-53-31": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-5.00--SPREAD\n"
+                },
+                "19-54-08": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "678.32--SELL\n",
+                    "spread": "-3.12--SPREAD\n"
+                },
+                "19-54-40": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "678.32--SELL\n",
+                    "spread": "-5.00--SPREAD\n"
+                },
+                "19-55-15": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-5.00--SPREAD\n"
+                },
+                "19-55-47": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-4.99--SPREAD\n"
+                },
+                "19-56-24": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-4.99--SPREAD\n"
+                },
+                "19-56-54": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-4.99--SPREAD\n"
+                },
+                "19-57-31": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-4.99--SPREAD\n"
+                },
+                "19-57-47": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-4.99--SPREAD\n"
+                },
+                "19-58-19": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-4.96--SPREAD\n"
+                },
+                "19-58-44": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.49--SELL\n",
+                    "spread": "-4.95--SPREAD\n"
+                },
+                "19-59-24": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.51--SELL\n",
+                    "spread": "-4.93--SPREAD\n"
+                },
+                "19-59-54": {
+                    "buy": "681.44--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.51--SELL\n",
+                    "spread": "-4.94--SPREAD\n"
+                },
+                "20-00-32": {
+                    "buy": "681.43--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.53--SELL\n",
+                    "spread": "-4.90--SPREAD\n"
+                },
+                "20-00-58": {
+                    "buy": "681.43--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.56--SELL\n",
+                    "spread": "-4.88--SPREAD\n"
+                },
+                "20-01-27": {
+                    "buy": "681.41--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.58--SELL\n",
+                    "spread": "-4.89--SPREAD\n"
+                },
+                "20-01-50": {
+                    "buy": "681.40--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.59--SELL\n",
+                    "spread": "-4.83--SPREAD\n"
+                },
+                "20-02-23": {
+                    "buy": "681.41--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.61--SELL\n",
+                    "spread": "-4.81--SPREAD\n"
+                },
+                "20-02-53": {
+                    "buy": "681.38--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.65--SELL\n",
+                    "spread": "-4.73--SPREAD\n"
+                },
+                "20-03-26": {
+                    "buy": "681.36--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.65--SELL\n",
+                    "spread": "-4.75--SPREAD\n"
+                },
+                "20-03-52": {
+                    "buy": "681.36--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.63--SELL\n",
+                    "spread": "-4.81--SPREAD\n"
+                },
+                "20-04-26": {
+                    "buy": "681.42--BUY\n",
+                    "last": "679.64--LAST\n",
+                    "sell": "676.63--SELL\n",
+                    "spread": "-4.79--SPREAD\n"
+                },
+                "20-04-52": {
+                    "buy": "681.38--BUY\n",
+                    "last": "676.65--LAST\n",
+                    "sell": "676.65--SELL\n",
+                    "spread": "-4.75--SPREAD\n"
+                },
+                "20-05-28": {
+                    "buy": "681.38--BUY\n",
+                    "last": "676.65--LAST\n",
+                    "sell": "676.66--SELL\n",
+                    "spread": "-4.72--SPREAD\n"
+                },
+                "20-06-02": {
+                    "buy": "681.37--BUY\n",
+                    "last": "676.65--LAST\n",
+                    "sell": "676.68--SELL\n",
+                    "spread": "-4.72--SPREAD\n"
+                },
+                "20-06-31": {
+                    "buy": "681.38--BUY\n",
+                    "last": "676.65--LAST\n",
+                    "sell": "676.68--SELL\n",
+                    "spread": "-4.94--SPREAD\n"
+                },
+                "20-07-01": {
+                    "buy": "681.37--BUY\n",
+                    "last": "676.65--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-4.98--SPREAD\n"
+                },
+                "20-07-35": {
+                    "buy": "681.41--BUY\n",
+                    "last": "676.65--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-4.97--SPREAD\n"
+                },
+                "20-08-01": {
+                    "buy": "681.38--BUY\n",
+                    "last": "676.65--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-4.94--SPREAD\n"
+                },
+                "20-08-30": {
+                    "buy": "681.37--BUY\n",
+                    "last": "676.65--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-4.93--SPREAD\n"
+                },
+                "20-09-00": {
+                    "buy": "680.43--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.99--SPREAD\n"
+                },
+                "20-09-32": {
+                    "buy": "680.18--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "677.00--SELL\n",
+                    "spread": "-3.72--SPREAD\n"
+                },
+                "20-10-03": {
+                    "buy": "678.44--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.49--SELL\n",
+                    "spread": "-1.94--SPREAD\n"
+                },
+                "20-10-32": {
+                    "buy": "678.29--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.52--SELL\n",
+                    "spread": "-1.77--SPREAD\n"
+                },
+                "20-10-59": {
+                    "buy": "678.29--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.55--SELL\n",
+                    "spread": "-1.89--SPREAD\n"
+                },
+                "20-11-40": {
+                    "buy": "678.44--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.60--SELL\n",
+                    "spread": "-1.84--SPREAD\n"
+                },
+                "20-12-10": {
+                    "buy": "678.44--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.60--SELL\n",
+                    "spread": "-1.95--SPREAD\n"
+                },
+                "20-12-36": {
+                    "buy": "678.44--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.51--SELL\n",
+                    "spread": "-1.93--SPREAD\n"
+                },
+                "20-13-07": {
+                    "buy": "678.44--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.54--SELL\n",
+                    "spread": "-1.90--SPREAD\n"
+                },
+                "20-13-35": {
+                    "buy": "678.44--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.57--SELL\n",
+                    "spread": "-2.96--SPREAD\n"
+                },
+                "20-14-06": {
+                    "buy": "679.38--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.56--SELL\n",
+                    "spread": "-2.82--SPREAD\n"
+                },
+                "20-14-31": {
+                    "buy": "679.37--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-2.90--SPREAD\n"
+                },
+                "20-14-58": {
+                    "buy": "679.36--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.51--SELL\n",
+                    "spread": "-2.91--SPREAD\n"
+                },
+                "20-15-31": {
+                    "buy": "679.40--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.54--SELL\n",
+                    "spread": "-2.86--SPREAD\n"
+                },
+                "20-16-05": {
+                    "buy": "679.40--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.56--SELL\n",
+                    "spread": "-2.86--SPREAD\n"
+                },
+                "20-16-32": {
+                    "buy": "679.42--BUY\n",
+                    "last": "680.45--LAST\n",
+                    "sell": "676.59--SELL\n",
+                    "spread": "-2.84--SPREAD\n"
+                },
+                "20-17-05": {
+                    "buy": "679.42--BUY\n",
+                    "last": "679.44--LAST\n",
+                    "sell": "676.62--SELL\n",
+                    "spread": "-2.82--SPREAD\n"
+                },
+                "20-17-36": {
+                    "buy": "679.44--BUY\n",
+                    "last": "679.44--LAST\n",
+                    "sell": "676.64--SELL\n",
+                    "spread": "-2.80--SPREAD\n"
+                },
+                "20-18-06": {
+                    "buy": "679.44--BUY\n",
+                    "last": "679.44--LAST\n",
+                    "sell": "676.66--SELL\n",
+                    "spread": "-2.78--SPREAD\n"
+                },
+                "20-18-38": {
+                    "buy": "679.44--BUY\n",
+                    "last": "679.44--LAST\n",
+                    "sell": "676.70--SELL\n",
+                    "spread": "-2.74--SPREAD\n"
+                },
+                "20-19-08": {
+                    "buy": "679.44--BUY\n",
+                    "last": "679.44--LAST\n",
+                    "sell": "676.74--SELL\n",
+                    "spread": "-2.70--SPREAD\n"
+                },
+                "20-19-33": {
+                    "buy": "679.44--BUY\n",
+                    "last": "679.44--LAST\n",
+                    "sell": "676.76--SELL\n",
+                    "spread": "-2.68--SPREAD\n"
+                },
+                "20-19-58": {
+                    "buy": "679.44--BUY\n",
+                    "last": "679.44--LAST\n",
+                    "sell": "676.77--SELL\n",
+                    "spread": "-2.98--SPREAD\n"
+                },
+                "20-20-31": {
+                    "buy": "679.40--BUY\n",
+                    "last": "679.44--LAST\n",
+                    "sell": "676.79--SELL\n",
+                    "spread": "-2.61--SPREAD\n"
+                },
+                "20-20-59": {
+                    "buy": "678.00--BUY\n",
+                    "last": "679.44--LAST\n",
+                    "sell": "676.80--SELL\n",
+                    "spread": "-1.54--SPREAD\n"
+                },
+                "20-21-32": {
+                    "buy": "678.00--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-1.58--SPREAD\n"
+                },
+                "20-22-05": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-1.56--SPREAD\n"
+                },
+                "20-22-43": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-1.55--SPREAD\n"
+                },
+                "20-23-15": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-1.56--SPREAD\n"
+                },
+                "20-23-36": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-1.58--SPREAD\n"
+                },
+                "20-24-08": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.49--SELL\n",
+                    "spread": "-1.53--SPREAD\n"
+                },
+                "20-24-39": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.50--SELL\n",
+                    "spread": "-1.57--SPREAD\n"
+                },
+                "20-25-11": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-1.56--SPREAD\n"
+                },
+                "20-25-33": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-1.55--SPREAD\n"
+                },
+                "20-26-06": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.50--SELL\n",
+                    "spread": "-1.52--SPREAD\n"
+                },
+                "20-26-40": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.53--SELL\n",
+                    "spread": "-1.56--SPREAD\n"
+                },
+                "20-27-09": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-1.55--SPREAD\n"
+                },
+                "20-27-41": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.51--SELL\n",
+                    "spread": "-1.57--SPREAD\n"
+                },
+                "20-28-22": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-1.57--SPREAD\n"
+                },
+                "20-28-52": {
+                    "buy": "678.02--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-29-19": {
+                    "buy": "680.33--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.87--SPREAD\n"
+                },
+                "20-29-41": {
+                    "buy": "680.33--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.85--SPREAD\n"
+                },
+                "20-30-10": {
+                    "buy": "680.33--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.86--SPREAD\n"
+                },
+                "20-30-38": {
+                    "buy": "680.33--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.85--SPREAD\n"
+                },
+                "20-31-07": {
+                    "buy": "680.33--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.86--SPREAD\n"
+                },
+                "20-31-42": {
+                    "buy": "680.33--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.97--SPREAD\n"
+                },
+                "20-32-17": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.96--SPREAD\n"
+                },
+                "20-32-45": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.96--SPREAD\n"
+                },
+                "20-33-13": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.97--SPREAD\n"
+                },
+                "20-33-41": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.96--SPREAD\n"
+                },
+                "20-34-08": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.96--SPREAD\n"
+                },
+                "20-34-49": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.99--SPREAD\n"
+                },
+                "20-35-23": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-35-48": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-36-22": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-36-52": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.96--SPREAD\n"
+                },
+                "20-37-25": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.97--SPREAD\n"
+                },
+                "20-37-49": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-38-26": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-38-53": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-39-21": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-39-49": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-40-22": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-40-44": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-4.00--SPREAD\n"
+                },
+                "20-41-22": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.99--SPREAD\n"
+                },
+                "20-41-49": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.99--SPREAD\n"
+                },
+                "20-42-25": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.97--SPREAD\n"
+                },
+                "20-42-50": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.99--SPREAD\n"
+                },
+                "20-43-20": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.99--SPREAD\n"
+                },
+                "20-43-45": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.99--SPREAD\n"
+                },
+                "20-44-19": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.99--SPREAD\n"
+                },
+                "20-44-49": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.99--SPREAD\n"
+                },
+                "20-45-24": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.99--SPREAD\n"
+                },
+                "20-45-45": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-46-19": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.99--SPREAD\n"
+                },
+                "20-46-44": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.98--SPREAD\n"
+                },
+                "20-47-21": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-4.00--SPREAD\n"
+                },
+                "20-47-50": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-4.00--SPREAD\n"
+                },
+                "20-48-20": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-4.00--SPREAD\n"
+                },
+                "20-48-48": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-4.00--SPREAD\n"
+                },
+                "20-49-22": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-4.00--SPREAD\n"
+                },
+                "20-49-48": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-4.00--SPREAD\n"
+                },
+                "20-50-26": {
+                    "buy": "680.44--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-4.00--SPREAD\n"
+                },
+                "20-50-54": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-51-26": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-51-56": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-52-27": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-52-52": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-53-22": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-53-52": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-54-24": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-54-48": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-55-21": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-55-56": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-56-34": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-57-02": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-57-38": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-58-08": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-58-34": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-58-59": {
+                    "buy": "680.39--BUY\n",
+                    "last": "676.46--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "20-59-31": {
+                    "buy": "680.39--BUY\n",
+                    "last": "679.00--LAST\n",
+                    "sell": "679.00--SELL\n",
+                    "spread": "-1.39--SPREAD\n"
+                },
+                "20-59-58": {
+                    "buy": "680.39--BUY\n",
+                    "last": "679.00--LAST\n",
+                    "sell": "679.00--SELL\n",
+                    "spread": "-1.39--SPREAD\n"
+                },
+                "21-00-36": {
+                    "buy": "680.39--BUY\n",
+                    "last": "679.00--LAST\n",
+                    "sell": "679.00--SELL\n",
+                    "spread": "-1.39--SPREAD\n"
+                },
+                "21-01-05": {
+                    "buy": "680.39--BUY\n",
+                    "last": "680.39--LAST\n",
+                    "sell": "679.00--SELL\n",
+                    "spread": "-1.39--SPREAD\n"
+                },
+                "21-01-32": {
+                    "buy": "680.39--BUY\n",
+                    "last": "680.39--LAST\n",
+                    "sell": "679.00--SELL\n",
+                    "spread": "-1.39--SPREAD\n"
+                },
+                "21-02-00": {
+                    "buy": "680.39--BUY\n",
+                    "last": "680.39--LAST\n",
+                    "sell": "679.00--SELL\n",
+                    "spread": "-1.39--SPREAD\n"
+                },
+                "21-02-42": {
+                    "buy": "680.39--BUY\n",
+                    "last": "680.39--LAST\n",
+                    "sell": "679.00--SELL\n",
+                    "spread": "-1.39--SPREAD\n"
+                },
+                "21-03-09": {
+                    "buy": "679.00--BUY\n",
+                    "last": "679.00--LAST\n",
+                    "sell": "679.00--SELL\n",
+                    "spread": "-3.95--SPREAD\n"
+                },
+                "21-03-43": {
+                    "buy": "680.39--BUY\n",
+                    "last": "679.00--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.94--SPREAD\n"
+                },
+                "21-04-15": {
+                    "buy": "680.39--BUY\n",
+                    "last": "679.00--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.94--SPREAD\n"
+                },
+                "21-04-41": {
+                    "buy": "680.39--BUY\n",
+                    "last": "679.00--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.94--SPREAD\n"
+                },
+                "21-05-12": {
+                    "buy": "676.45--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-0.01--SPREAD\n"
+                },
+                "21-05-36": {
+                    "buy": "676.45--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-0.01--SPREAD\n"
+                },
+                "21-06-10": {
+                    "buy": "676.45--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-0.01--SPREAD\n"
+                },
+                "21-06-34": {
+                    "buy": "676.45--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-0.01--SPREAD\n"
+                },
+                "21-07-07": {
+                    "buy": "676.45--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-0.01--SPREAD\n"
+                },
+                "21-07-39": {
+                    "buy": "676.45--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-0.01--SPREAD\n"
+                },
+                "21-08-15": {
+                    "buy": "676.45--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-0.01--SPREAD\n"
+                },
+                "21-08-46": {
+                    "buy": "676.45--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-09-16": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.50--SELL\n",
+                    "spread": "-3.50--SPREAD\n"
+                },
+                "21-09-42": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.53--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-10-10": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.52--SPREAD\n"
+                },
+                "21-10-39": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.49--SELL\n",
+                    "spread": "-3.55--SPREAD\n"
+                },
+                "21-11-07": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.56--SPREAD\n"
+                },
+                "21-11-39": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.56--SPREAD\n"
+                },
+                "21-12-07": {
+                    "buy": "678.06--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.55--SPREAD\n"
+                },
+                "21-12-37": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.55--SPREAD\n"
+                },
+                "21-13-11": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.52--SPREAD\n"
+                },
+                "21-13-38": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.56--SPREAD\n"
+                },
+                "21-14-09": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-14-43": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-15-09": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-15-34": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-16-06": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-16-42": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-17-13": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-17-44": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.49--SELL\n",
+                    "spread": "-3.51--SPREAD\n"
+                },
+                "21-18-09": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.51--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-18-40": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-19-13": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-19-41": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-20-14": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-20-40": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-21-15": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-21-49": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-22-23": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-22-46": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-23-17": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-23-42": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-24-21": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.45--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-24-44": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.55--SPREAD\n"
+                },
+                "21-25-22": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-25-52": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-26-23": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-26-52": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-27-22": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.44--SELL\n",
+                    "spread": "-3.56--SPREAD\n"
+                },
+                "21-27-55": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.55--SPREAD\n"
+                },
+                "21-28-19": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-28-44": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-29-15": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-29-46": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.48--SELL\n",
+                    "spread": "-3.55--SPREAD\n"
+                },
+                "21-30-26": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.49--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-30-52": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.56--SPREAD\n"
+                },
+                "21-31-24": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-31-49": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.50--SELL\n",
+                    "spread": "-3.55--SPREAD\n"
+                },
+                "21-32-16": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.46--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-32-44": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-33-17": {
+                    "buy": "680.00--BUY\n",
+                    "last": "676.47--LAST\n",
+                    "sell": "676.50--SELL\n",
+                    "spread": "-3.54--SPREAD\n"
+                },
+                "21-33-49": {
+                    "buy": "680.00--BUY\n",
+                    "last": "680.00--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.53--SPREAD\n"
+                },
+                "21-34-25": {
+                    "buy": "680.00--BUY\n",
+                    "last": "680.00--LAST\n",
+                    "sell": "680.00--SELL\n",
+                    "spread": "-0.39--SPREAD\n"
+                },
+                "21-34-54": {
+                    "buy": "680.39--BUY\n",
+                    "last": "680.00--LAST\n",
+                    "sell": "680.00--SELL\n",
+                    "spread": "-0.39--SPREAD\n"
+                },
+                "21-35-27": {
+                    "buy": "679.89--BUY\n",
+                    "last": "680.00--LAST\n",
+                    "sell": "680.00--SELL\n",
+                    "spread": "-3.94--SPREAD\n"
+                },
+                "21-35-51": {
+                    "buy": "680.39--BUY\n",
+                    "last": "680.00--LAST\n",
+                    "sell": "676.45--SELL\n",
+                    "spread": "-3.94--SPREAD\n"
+                },
+                "21-36-30": {
+                    "buy": "680.39--BUY\n",
+                    "last": "680.00--LAST\n",
+                    "sell": "676.50--SELL\n",
+                    "spread": "-3.89--SPREAD\n"
+                },
+                "21-36-58": {
+                    "buy": "680.39--BUY\n",
+                    "last": "680.00--LAST\n",
+                    "sell": "676.52--SELL\n",
+                    "spread": "-3.89--SPREAD\n"
+                },
+                "21-37-32": {
+                    "buy": "680.39--BUY\n",
+                    "last": "680.39--LAST\n",
+                    "sell": "676.50--SELL\n",
+                    "spread": "-3.89--SPREAD\n"
+                },
+                "21-38-05": {
+                    "buy": "680.39--BUY\n",
+                    "last": "680.39--LAST\n",
+                    "sell": "676.50--SELL\n",
+                    "spread": "-3.94--SPREAD\n"
+                },
+                "21-38-35": {
+                    "buy": "680.39--BUY\n",
+                    "last": "680.39--LAST\n",
+                    "sell": "676.47--SELL\n",
+                    "spread": "-3.92--SPREAD\n"
+                }
             }
         }
     },
     "best-spread": {
         "date": "07/03/2016",
         "spread": 0.006909566858430094
-    }
+    },
+    "trades": {}
 }
