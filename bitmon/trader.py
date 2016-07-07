@@ -286,6 +286,3 @@ class Trader(object):
 
 		sell(exchange, amount, 'BTC')
 
-
-trade = Trader()
-trade.trade_decision()
