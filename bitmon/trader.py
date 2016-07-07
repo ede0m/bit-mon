@@ -3,6 +3,8 @@ sys.path.append("..")
 from api_call import *
 import json
 import masterDBcontroller
+import time
+from decimal import *
 
 
 class Trader(object):
@@ -13,11 +15,35 @@ class Trader(object):
 		self.bc_worth = 1 # TOTAL ASSETS (BTC and USD across all markets) represented in BTC
 		self.usd_worth = 1 # # TOTAL ASSETS (BTC and USD across all markets) represented in USD
 		self.bc_base = .1 # baseline for bc
-		self.usd_base = 50 # baseline for us dollars
+		self.usd_base = 10 # baseline for us dollars
 		self.bc_r = 0 # percentage of our net worth that is liquid bitcoin
 		self.usd_r = 0 # percentage of our net worth that is liquid us dollars
 		self.baseline = .5
-		self.ex_dic = {'COIN-BS/KRK':{'usd_balance_r':'','last_trade':{'buy':{'buyer':'','price':''},'sell':{'seller':'','price':''}}}}
+		self.ex_dic = {
+		'COIN-BS/KRK' :	{
+			'usd_balance_r': None,
+			'last_trade': {
+					'buy':	{
+						'buyer':'',
+						'price': None
+					},
+					'sell': {
+						'seller':'',
+						'price': None
+							}
+					}
+				}
+		}
+	
+	def logTrade(buying_e, selling_e, date, time):
+		masterDBcontroller.db["trades"][date] = {}
+		masterDBcontroller.db["trades"][date][time] = {}
+		date = time.strftime("%m/%d/%Y")
+		time = time.strftime('%H-%M-%S')
+		masterDBcontroller.db["trades"][date][time]["sell_exchange"] = selling_e
+		masterDBcontroller.db["trades"][date][time]["buy-exhange"] = buying_e
+
+
 
 	# Returns profit ratio from best spread between any 2 markets
 	def __get_spread_info(self):
@@ -53,7 +79,7 @@ class Trader(object):
 		# what is this for?
 		if(profit_r >= temp_best_spread):
 			masterDBcontroller.setBestSpread(profit_r, date)
-		res = (my_buy, my_sell, profit_r, ex_buy, ex_sell, ex_pair)
+		res = (float(my_buy), float(my_sell), profit_r, ex_buy, ex_sell, ex_pair)
 		print(res)
 		return res
 
@@ -68,7 +94,7 @@ class Trader(object):
 		ex_buy = input_spread[3]
 		ex_sell = input_spread[4]
 		ex_pair = input_spread[5]
-		
+
 		total_assets = get_balance()
 		self.usd_assets = total_assets[0] + total_assets[2]
 		self.bc_assets = total_assets[1] + total_assets[3]
@@ -80,13 +106,12 @@ class Trader(object):
 
 		buyer_b = get_balance(exchange=ex_buy)
 		seller_b = get_balance(exchange=ex_sell)
-		buyer_usd_b = float(buyer_b[0])
-		buyer_bt_b = float(buyer_b[1])
-		seller_usd_b = float(seller_b[0])
-		seller_bt_b = float(seller_b[1])
+		buyer_usd_b = buyer_b[0]
+		buyer_bt_b = buyer_b[1]
+		seller_usd_b = seller_b[0]
+		seller_bt_b = seller_b[1]
 		# OTHER EXCHANGE ASSET DATA
 		self.ex_dic[ex_pair]['usd_balance_r'] = buyer_usd_b / seller_usd_b
-		print(self.ex_dic[ex_pair]['usd_balance_r'])
 		# OTHER EXCHANGE PAIRS
 
 		# default trade is 6% of payable assets in any one market 
@@ -96,10 +121,11 @@ class Trader(object):
 
 
 		usd_balance_r = self.ex_dic[ex_pair]['usd_balance_r']
-		# BUYINF EXCHANGE HAS MORE USD 
+		print(usd_balance_r)
+		# BUYING EXCHANGE HAS MORE USD 
 		if (usd_balance_r > 2.285):
 
-			difference = buyer_b - seller_b
+			difference = buyer_usd_b - seller_usd_b
 			amount_usd = difference / 2
 			last_ex_buy = self.ex_dic[ex_pair]['last_trade']['buy']['buyer']
 			last_ex_sell = self.ex_dic[ex_pair]['last_trade']['sell']['seller']
@@ -111,17 +137,18 @@ class Trader(object):
 				# WARNING! THIS COULD MAKE HIGH VOLUME TRADES 
 				amount = amount_usd/buyingMKT_price
 				trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
+				logTrade(ex_buy, ex_sell, trade)
 				return
 			
 			# BUYING MARKET HAS NOT CHANGED 
 			# If exchange with more USD can buy BTC for below last trade buy price to even out accounts and make some moneyyy
-			elif buyingMKT_price > last_sell_price: 
+			elif buyingMKT_price > last_sell_price:              # TODO ERROR
 				amount = buyer_bt_b / 2
-				sell = makeSell(ex_buy, amount)
+				sell = self.__makeSell(ex_buy, amount)
 				print('Buying Exchange Balance Evened')
 				if sellingMKT_price < last_buy_price:
 				 	amount = (seller_usd_b / 2) / sellingMKT_price
-				 	buy = makeBuy(ex_sell, amount)
+				 	buy = self.__makeBuy(ex_sell, amount)
 				 	print('Selling Exchange Balance Evened')
 				 	return
 				else:
@@ -135,28 +162,30 @@ class Trader(object):
 		# SELLING EXCHANGE HAS MORE USD
 		elif (usd_balance_r < .35):
 
-			difference = seller_b - buyer_b
+			difference = seller_usd_b - buyer_usd_b
 			amount_usd = difference / 2
 			last_ex_buy = self.ex_dic[ex_pair]['last_trade']['buy']['buyer']
 			last_ex_sell = self.ex_dic[ex_pair]['last_trade']['sell']['seller']
 			last_buy_price = self.ex_dic[ex_pair]['last_trade']['buy']['price']
 			last_sell_price = self.ex_dic[ex_pair]['last_trade']['sell']['price']
+			print(last_buy_price)
 			if ex_buy == last_ex_sell and ex_sell == last_ex_buy:
 				print('Reverse Trade Started')
 				# WARNING! THIS COULD MAKE HIGH VOLUME TRADES 
 				amount = amount_usd/buyingMKT_price
 				trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
+				logTrade(ex_buy, ex_sell, trade)
 				return
 			# SELLING MARKET HAS NOT CHANGED
 			# If exchange with more USD can buy BTC for below last trade buy price to even out accounts and make some moneyyy
 			elif sellingMKT_price < last_buy_price:
 				amount = (seller_usd_b / 2) / sellingMKT_price
-				buy = makeBuy(ex_sell, amount) 					# NOW SELLING EXCHANGE IS EVENED OUT
+				buy = self.__makeBuy(ex_sell, amount) 					# NOW SELLING EXCHANGE IS EVENED OUT
 				print('Selling Exchange Balance Evened')
 				#Check if buying exchange can be evened to fully even out pair of exchanges 
 				if buyingMKT_price > last_sell_price:
 					amount = buyer_bt_b / 2
-					sell = makeSell(ex_buy, amount)
+					sell = self.__makeSell(ex_buy, amount)
 					print('Buying Exchange Balance Evened')
 					return
 				else:
@@ -170,13 +199,14 @@ class Trader(object):
 		
 		####################################################################
 		################        REGULAR PROCEDURE        ###################
-
+		
 		# we have more bitcoin than we should and spread looks GREAT. 
 		if(self.bc_r > .4 and self.usd_assets > self.usd_base and spread_r > .016):
 			volume = .400000
 			amount_usd = buyer_usd_b * volume
 			amount = amount_usd/buyingMKT_price
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
+			logTrade(ex_buy, ex_sell, trade)
 			return
 			  
 
@@ -186,19 +216,21 @@ class Trader(object):
 			amount_usd = buyer_usd_b * float(volume)
 			amount = amount_usd/buyingMKT_price
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
+			logTrade(ex_buy, ex_sell, trade)
 			return
 		
 		# Same ol shit
 		if(self.bc_r > .10 and self.usd_assets > self.usd_base and spread_r > 0.004):
-			volume = .100000
+			volume = .350000
 			amount_usd = buyer_usd_b * float(volume)
 			amount = amount_usd/buyingMKT_price
 
 			if amount < .01:
 				print('ABORTING TRADE, TRADE LESS THAN .01 BTC. Increase balance to resolve.')
 				return
+			
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
-			print(trade)
+			logTrade(ex_buy, ex_sell, trade)
 			return
 
 		#####################################################################
@@ -210,42 +242,41 @@ class Trader(object):
 		spread = selling_price - buying_price	
 
 		if buyer == 'COIN-BS':
-			buy_fee = float("{0:.2f}".format(((.01)*(buying_price)*(amount))))
+			fee = (.01)*(buying_price)*(amount)
+			buy_fee = Decimal(buy_fee.quantize(Decimal('.01'), rounding=ROUND_UP))
 		# kraken changes fee based on volume of trades per user. Will always be between 0.16% and 0.26%
 		if buyer == 'KRK':
-			buy_fee = float("{0:.2f}".format(((.0016)*(buying_price)*(amount))))								### ROUND THIS SHIT UP ###
+			fee = (.0016)*(buying_price)*(amount)								### ROUND THIS SHIT UP ###
+			buy_fee = Decimal(buy_fee.quantize(Decimal('.01'), rounding=ROUND_UP))
 		
 		if seller == 'COIN-BS':
-			sell_fee = float("{0:.2f}".format(((.01)*(selling_price)*(amount))))
+			fee = (.01)*(selling_price)*(amount)
+			sell_fee = Decimal(buy_fee.quantize(Decimal('.01'), rounding=ROUND_UP))
 		
 		if seller == 'KRK':
-			sell_fee = float("{0:.2f}".format(((.0016)*(selling_price)*(amount))))
+			fee = (.0016)*(selling_price)*(amount)
+			sell_fee = Decimal(buy_fee.quantize(Decimal('.01'), rounding=ROUND_UP))
 
 		total_fee = buy_fee + sell_fee
 
 		# Never make a trade that profits less than 25 cents
 		if (spread - total_fee) < self.baseline:
 			print('\n - - -  PROFIT LESS THAN BASELINE  - - -  \n - - -  TRADE ABORTED  - - - \n\n')
-			return False
+			return 
 		# Make a trade and get rich
 		else:
-			print(buy_fee)
-			print(sell_fee)
 
 			self.ex_dic[ex_pair]['last_trade']['buy']['buyer'] = buyer
 			self.ex_dic[ex_pair]['last_trade']['buy']['price'] = buying_price
 			self.ex_dic[ex_pair]['last_trade']['sell']['seller'] = seller
 			self.ex_dic[ex_pair]['last_trade']['sell']['price'] = selling_price
 
-			buy(buyer, amount, 'BTC')
-			sell(seller, amount, 'BTC')
-			return (selling_price - buying_price - total_fee) * amount
+			#buy(buyer, amount, 'BTC')
+			#sell(seller, amount, 'BTC')
+			return ((selling_price - buying_price) * amount) - total_fee
 			# MAY WANT TO QUERY ACTUAL DATA FROM BUY AND SELL to get final profit.
 
 
-
-
-		#LOG STUFF TO DB
 
 	def __makeBuy(exchange, amount):
 
@@ -256,4 +287,5 @@ class Trader(object):
 		sell(exchange, amount, 'BTC')
 
 
-
+trade = Trader()
+trade.trade_decision()
