@@ -46,7 +46,7 @@ class Trader(object):
 
 
 	# Returns profit ratio from best spread between any 2 markets
-	def get_spread_info(self):
+	def __get_spread_info(self):
 		lasts = []
 		
 		# GET ALL LAST INFO FROM EACH EXCHANGE
@@ -137,18 +137,21 @@ class Trader(object):
 				# WARNING! THIS COULD MAKE HIGH VOLUME TRADES 
 				amount = amount_usd/buyingMKT_price
 				trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
+				print(trade)
 				logTrade(ex_buy, ex_sell, trade)
-				return
+				return Trade
 			
 			# BUYING MARKET HAS NOT CHANGED 
 			# If exchange with more USD can buy BTC for below last trade buy price to even out accounts and make some moneyyy
 			elif buyingMKT_price > last_sell_price:              # TODO ERROR
 				amount = buyer_bt_b / 2
 				sell = self.__makeSell(ex_buy, amount)
+				print(sell)
 				print('Buying Exchange Balance Evened')
 				if sellingMKT_price < last_buy_price:
 				 	amount = (seller_usd_b / 2) / sellingMKT_price
 				 	buy = self.__makeBuy(ex_sell, amount)
+				 	print(buy)
 				 	print('Selling Exchange Balance Evened')
 				 	return
 				else:
@@ -174,6 +177,7 @@ class Trader(object):
 				# WARNING! THIS COULD MAKE HIGH VOLUME TRADES 
 				amount = amount_usd/buyingMKT_price
 				trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
+				print(trade)
 				logTrade(ex_buy, ex_sell, trade)
 				return
 			# SELLING MARKET HAS NOT CHANGED
@@ -186,6 +190,7 @@ class Trader(object):
 				if buyingMKT_price > last_sell_price:
 					amount = buyer_bt_b / 2
 					sell = self.__makeSell(ex_buy, amount)
+					print(sell)
 					print('Buying Exchange Balance Evened')
 					return
 				else:
@@ -206,6 +211,7 @@ class Trader(object):
 			amount_usd = buyer_usd_b * volume
 			amount = amount_usd/buyingMKT_price
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
+			print(trade)
 			logTrade(ex_buy, ex_sell, trade)
 			return
 
@@ -214,6 +220,7 @@ class Trader(object):
 			amount_usd = buyer_usd_b * volume
 			amount = amount_usd/buyingMKT_price
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
+			print(trade)
 			logTrade(ex_buy, ex_sell, trade)
 			return
 			  
@@ -224,6 +231,7 @@ class Trader(object):
 			amount_usd = buyer_usd_b * float(volume)
 			amount = amount_usd/buyingMKT_price
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
+			print(trade)
 			logTrade(ex_buy, ex_sell, trade)
 			return
 		
@@ -238,8 +246,13 @@ class Trader(object):
 				return
 			
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
+			print(trade)
 			logTrade(ex_buy, ex_sell, trade)
 			return
+
+		print('EXCHANGE PAIR -- ', ex_pair)
+		print('SPREAD_R      -- ', spread_r)
+
 
 		#####################################################################
 
@@ -279,8 +292,8 @@ class Trader(object):
 			self.ex_dic[ex_pair]['last_trade']['sell']['seller'] = seller
 			self.ex_dic[ex_pair]['last_trade']['sell']['price'] = selling_price
 
-			#buy(buyer, amount, 'BTC')
-			#sell(seller, amount, 'BTC')
+			buy(buyer, amount, 'BTC')
+			sell(seller, amount, 'BTC')
 			return ((selling_price - buying_price) * amount) - total_fee
 			# MAY WANT TO QUERY ACTUAL DATA FROM BUY AND SELL to get final profit.
 
@@ -293,6 +306,3 @@ class Trader(object):
 	def __makeSell(exchange, amount):
 
 		sell(exchange, amount, 'BTC')
-
-trader = Trader()
-trader.get_spread_info()

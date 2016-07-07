@@ -1,4 +1,5 @@
 import sys
+import time
 sys.path.append('bitmon/')
 import trader
 
@@ -9,6 +10,6 @@ if __name__ == "__main__":
     while True:
 
     	make_us_some_fucking_money.trade_decision()
-    	time.sleep(900)
+    	time.sleep(60)
 
     sys.exit(0)
