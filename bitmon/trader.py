@@ -46,7 +46,7 @@ class Trader(object):
 
 
 	# Returns profit ratio from best spread between any 2 markets
-	def __get_spread_info(self):
+	def get_spread_info(self):
 		lasts = []
 		
 		# GET ALL LAST INFO FROM EACH EXCHANGE
@@ -201,7 +201,15 @@ class Trader(object):
 		################        REGULAR PROCEDURE        ###################
 		
 		# we have more bitcoin than we should and spread looks GREAT. 
-		if(self.bc_r > .4 and self.usd_assets > self.usd_base and spread_r > .016):
+		if(self.bc_r > .4 and self.usd_assets > self.usd_base and spread_r > .021):
+			volume = .400000
+			amount_usd = buyer_usd_b * volume
+			amount = amount_usd/buyingMKT_price
+			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
+			logTrade(ex_buy, ex_sell, trade)
+			return
+
+		if(self.bc_r > .4 and self.usd_assets > self.usd_base and spread_r > .0185):
 			volume = .400000
 			amount_usd = buyer_usd_b * volume
 			amount = amount_usd/buyingMKT_price
@@ -211,7 +219,7 @@ class Trader(object):
 			  
 
 		# probably some logic in here to determine how much we wanna buy
-		if(self.bc_r > .25 and self.usd_assets > self.usd_base and spread_r > 0.01):
+		if(self.bc_r > .25 and self.usd_assets > self.usd_base and spread_r > 0.016):
 			volume = .250000
 			amount_usd = buyer_usd_b * float(volume)
 			amount = amount_usd/buyingMKT_price
@@ -220,7 +228,7 @@ class Trader(object):
 			return
 		
 		# Same ol shit
-		if(self.bc_r > .10 and self.usd_assets > self.usd_base and spread_r > 0.004):
+		if(self.bc_r > .10 and self.usd_assets > self.usd_base and spread_r > 0.013):
 			volume = .350000
 			amount_usd = buyer_usd_b * float(volume)
 			amount = amount_usd/buyingMKT_price
@@ -286,3 +294,5 @@ class Trader(object):
 
 		sell(exchange, amount, 'BTC')
 
+trader = Trader()
+trader.get_spread_info()
