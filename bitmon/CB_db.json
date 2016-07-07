@@ -39,15 +39,15 @@
         },
         "07/03/2016": {},
         "07/04/2016": {
-            "21-35-29": {
+            "21-40-37": {
                 "buy_low": "buy low: 686.80\n",
-                "entry": "entry 10\n",
-                "high": "high: 680.16\n",
-                "low": "low: 680.14\n",
-                "range": "range: 0.02\n",
-                "sell_high": "sell high: 680.11\n",
-                "spread": "spread: -13.50\n",
-                "time": "time 21:35:29\n"
+                "entry": "entry 11\n",
+                "high": "high: 680.28\n",
+                "low": "low: 679.87\n",
+                "range": "range: 0.41\n",
+                "sell_high": "sell high: 680.27\n",
+                "spread": "spread: -13.56\n",
+                "time": "time 21:40:37\n"
             }
         }
     },
@@ -1201,6 +1201,24 @@
                 "buy": "687.07--BUY\n",
                 "last": "680.28--LAST\n",
                 "sell": "673.47--SELL\n",
+                "spread": "-13.64--SPREAD\n"
+            },
+            "21-39-58": {
+                "buy": "687.08--BUY\n",
+                "last": "680.27--LAST\n",
+                "sell": "673.47--SELL\n",
+                "spread": "-13.61--SPREAD\n"
+            },
+            "21-40-37": {
+                "buy": "687.08--BUY\n",
+                "last": "680.28--LAST\n",
+                "sell": "680.27--SELL\n",
+                "spread": "-13.62--SPREAD\n"
+            },
+            "21-41-12": {
+                "buy": "687.09--BUY\n",
+                "last": "680.33--LAST\n",
+                "sell": "673.49--SELL\n",
                 "spread": "-13.64--SPREAD\n"
             }
         }

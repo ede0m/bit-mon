@@ -1543,6 +1543,24 @@
                 "last": "680.39--LAST\n",
                 "sell": "676.49--SELL\n",
                 "spread": "-3.90--SPREAD\n"
+            },
+            "21-40-05": {
+                "buy": "680.39--BUY\n",
+                "last": "680.39--LAST\n",
+                "sell": "676.49--SELL\n",
+                "spread": "-3.90--SPREAD\n"
+            },
+            "21-40-34": {
+                "buy": "680.39--BUY\n",
+                "last": "680.39--LAST\n",
+                "sell": "676.50--SELL\n",
+                "spread": "-3.92--SPREAD\n"
+            },
+            "21-40-58": {
+                "buy": "680.39--BUY\n",
+                "last": "680.39--LAST\n",
+                "sell": "676.51--SELL\n",
+                "spread": "-3.88--SPREAD\n"
             }
         }
     }
