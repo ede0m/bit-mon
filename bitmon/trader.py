@@ -80,7 +80,7 @@ class Trader(object):
 		if(profit_r >= temp_best_spread):
 			masterDBcontroller.setBestSpread(profit_r, date)
 		res = (float(my_buy), float(my_sell), profit_r, ex_buy, ex_sell, ex_pair)
-		print(res)
+		print('\n',res,'\n')
 		return res
 
 
@@ -121,7 +121,9 @@ class Trader(object):
 
 
 		usd_balance_r = self.ex_dic[ex_pair]['usd_balance_r']
-		print(usd_balance_r)
+		
+
+		print('USD_BALANCE   -- ',usd_balance_r)
 		# BUYING EXCHANGE HAS MORE USD 
 		if (usd_balance_r > 2.285):
 
