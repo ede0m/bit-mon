@@ -1,6 +1,6 @@
 import os
 import json
-import merger
+import DB.merger
 
 db = {}
 
@@ -32,8 +32,8 @@ def setBestSpread(new, date):
         data_file.write(json.dumps(db, indent=4, sort_keys=True))
 
 def getLast(exchange):
-    global db
-    merger.merge()
+    DB.merger.merge()
+    load()
     # print(json.dumps(db, indent=4, sort_keys=True))
     snapshots_keys = list(db[exchange]['snapshots'].keys())
     last_key = snapshots_keys[0]
@@ -88,7 +88,6 @@ def getLast(exchange):
     last_num = last_split[0]
     # print(last_num)
     res = (float(last_num), last_raw_data_key, last_key, exchange)
-    print(res)
     return res
 
 

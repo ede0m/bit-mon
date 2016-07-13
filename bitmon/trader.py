@@ -1,8 +1,7 @@
 import sys, os
-sys.path.append("..")
 from api_call import *
 import json
-import masterDBcontroller
+import DB.masterDBcontroller
 import time
 from decimal import *
 
@@ -36,12 +35,12 @@ class Trader(object):
 		}
 	
 	def logTrade(buying_e, selling_e, date, time):
-		masterDBcontroller.db["trades"][date] = {}
-		masterDBcontroller.db["trades"][date][time] = {}
+		DB.masterDBcontroller.db["trades"][date] = {}
+		DB.masterDBcontroller.db["trades"][date][time] = {}
 		date = time.strftime("%m/%d/%Y")
 		time = time.strftime('%H-%M-%S')
-		masterDBcontroller.db["trades"][date][time]["sell_exchange"] = selling_e
-		masterDBcontroller.db["trades"][date][time]["buy-exhange"] = buying_e
+		DB.masterDBcontroller.db["trades"][date][time]["sell_exchange"] = selling_e
+		DB.masterDBcontroller.db["trades"][date][time]["buy-exhange"] = buying_e
 
 
 
@@ -50,11 +49,11 @@ class Trader(object):
 		lasts = []
 		
 		# GET ALL LAST INFO FROM EACH EXCHANGE
-		lasts.append(masterDBcontroller.getLast('COIN-BS'))
-		lasts.append(masterDBcontroller.getLast("KRK"))
+		lasts.append(DB.masterDBcontroller.getLast('COIN-BS'))
+		lasts.append(DB.masterDBcontroller.getLast("KRK"))
 
 		# Just get the last date
-		date = masterDBcontroller.getLast('KRK')[2]
+		date = DB.masterDBcontroller.getLast('KRK')[2]
 
 		ex_buy = ''
 		ex_sell = ''
@@ -75,10 +74,10 @@ class Trader(object):
 
 		profit_r = ((my_sell - my_buy) / my_buy)
 		
-		temp_best_spread = masterDBcontroller.getBestSpread()
+		temp_best_spread = DB.masterDBcontroller.getBestSpread()
 		# what is this for?
 		if(profit_r >= temp_best_spread):
-			masterDBcontroller.setBestSpread(profit_r, date)
+			DB.masterDBcontroller.setBestSpread(profit_r, date)
 		res = (float(my_buy), float(my_sell), profit_r, ex_buy, ex_sell, ex_pair)
 		print('\n',res,'\n')
 		return res
