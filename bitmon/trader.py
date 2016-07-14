@@ -4,6 +4,7 @@ import json
 import DB.masterDBcontroller
 import time
 from decimal import *
+from pymongo import MongoClient
 
 
 class Trader(object):
@@ -34,13 +35,33 @@ class Trader(object):
 				}
 		}
 	
-	def logTrade(buying_e, selling_e, date, time):
-		DB.masterDBcontroller.db["trades"][date] = {}
-		DB.masterDBcontroller.db["trades"][date][time] = {}
+	def __logTrade(self, buying_e, selling_e, buy_p, sell_p, fee):
 		date = time.strftime("%m/%d/%Y")
-		time = time.strftime('%H-%M-%S')
-		DB.masterDBcontroller.db["trades"][date][time]["sell_exchange"] = selling_e
-		DB.masterDBcontroller.db["trades"][date][time]["buy-exhange"] = buying_e
+		t = time.strftime('%H-%M-%S')
+		profit = sell_p - buy_p - fee
+		DB.masterDBcontroller.db["trades"][date] = {}
+		DB.masterDBcontroller.db["trades"][date][t] = {}
+		DB.masterDBcontroller.db["trades"][date][t]["sell-exchange"] = selling_e
+		DB.masterDBcontroller.db["trades"][date][t]["buy-exhange"] = buying_e
+		DB.masterDBcontroller.db["trades"][date][t]["buy-price"] = buy_p
+		DB.masterDBcontroller.db["trades"][date][t]["sell-price"] = sell_p
+		DB.masterDBcontroller.db["trades"][date][t]["fee"] = fee
+		DB.masterDBcontroller.db["trades"][date][t]["profit"] = profit
+
+		mongo = MongoClient('mongodb://anne:password@ds023550.mlab.com:23550/bitmon')
+		db = mongo.bitmon
+		transactions = db.transactions
+		trx = {
+			'date': date,
+			'time': t,
+			'sell-exchange': selling_e,
+			'buy-exhange': buying_e,
+			'buy-price': buy_p,
+			'sell-price': sell_p,
+			'fee': fee,
+			'profit': profit
+		}
+		send = transactions.insert_one(trx)
 
 
 
@@ -139,7 +160,6 @@ class Trader(object):
 				amount = amount_usd/buyingMKT_price
 				trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
 				print(trade)
-				logTrade(ex_buy, ex_sell, trade)
 				return Trade
 			
 			# BUYING MARKET HAS NOT CHANGED 
@@ -179,7 +199,6 @@ class Trader(object):
 				amount = amount_usd/buyingMKT_price
 				trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
 				print(trade)
-				logTrade(ex_buy, ex_sell, trade)
 				return
 			# SELLING MARKET HAS NOT CHANGED
 			# If exchange with more USD can buy BTC for below last trade buy price to even out accounts and make some moneyyy
@@ -213,7 +232,6 @@ class Trader(object):
 			amount = amount_usd/buyingMKT_price
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
 			print(trade)
-			logTrade(ex_buy, ex_sell, trade)
 			return
 
 		if(self.bc_r > .4 and self.usd_assets > self.usd_base and spread_r > .0185):
@@ -222,7 +240,6 @@ class Trader(object):
 			amount = amount_usd/buyingMKT_price
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
 			print(trade)
-			logTrade(ex_buy, ex_sell, trade)
 			return
 			  
 
@@ -233,7 +250,6 @@ class Trader(object):
 			amount = amount_usd/buyingMKT_price
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
 			print(trade)
-			logTrade(ex_buy, ex_sell, trade)
 			return
 		
 		# Same ol shit
@@ -248,7 +264,6 @@ class Trader(object):
 			
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
 			print(trade)
-			logTrade(ex_buy, ex_sell, trade)
 			return
 
 		print('EXCHANGE PAIR -- ', ex_pair)
@@ -288,6 +303,9 @@ class Trader(object):
 		# Make a trade and get rich
 		else:
 
+			self.__logTrade(buyer, seller, buying_price, selling_price, total_fee)
+
+
 			self.ex_dic[ex_pair]['last_trade']['buy']['buyer'] = buyer
 			self.ex_dic[ex_pair]['last_trade']['buy']['price'] = buying_price
 			self.ex_dic[ex_pair]['last_trade']['sell']['seller'] = seller
@@ -307,3 +325,4 @@ class Trader(object):
 	def __makeSell(exchange, amount):
 
 		sell(exchange, amount, 'BTC')
+
