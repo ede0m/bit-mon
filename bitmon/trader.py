@@ -175,7 +175,7 @@ class Trader(object):
 			print('\nPROSPECT_BUYER: ', ex_sell, ' at ', my_buy, '  PROSPECT_SELLER: ', ex_buy , ' at ', my_sell, ' with ', fee_total, 'total fees')
 
 			#Check Fee for Coinbase
-			if ((my_sell - my_buy - fee_total) < self.baseline) and  (CB in lasts):
+			if ((my_sell - my_buy - fee_total) < self.baseline) and  (CB == my_buy or CB == my_sell):
 				
 				print(' \n --- Trade Not Profitable -- removing fee-heavy exchanges (Coin Base) ---')
 				loop = True
@@ -250,7 +250,8 @@ class Trader(object):
 		usd_balance_r = self.ex_dic[ex_pair]['usd_balance_r']
 		
 
-		print('USD_BALANCE R -- ', usd_balance_r, '\n')
+		print('USD_BALANCE R -- ', usd_balance_r)
+		print('BTC_BALANCE R --', self.bc_r, '\n')
 		# BUYING EXCHANGE HAS MORE USD 
 		if (usd_balance_r > 2.285):
 
@@ -288,7 +289,7 @@ class Trader(object):
 			
 			print('Uneven Balance for this exchange pair not managed')
 			print('-------------------------------------------------------------------------------------------------------------\n')	 	
-			return
+			return ( False, buyingMKT_price, sellingMKT_price)
 		
 		
 		# SELLING EXCHANGE HAS MORE USD
@@ -326,7 +327,7 @@ class Trader(object):
 			
 			print('Uneven Balance for this exchange pair not managed ')
 			print('-------------------------------------------------------------------------------------------------------------\n')		
-			return
+			return ( False, buyingMKT_price, sellingMKT_price)
 
 
 		
@@ -341,7 +342,7 @@ class Trader(object):
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
 			print('TRADE: ', trade)
 			print('-------------------------------------------------------------------------------------------------------------\n')	
-			return
+			return trade
 
 		if(self.bc_r > .4 and self.usd_assets > self.usd_base and spread_r > .0185):
 			volume = .400000
@@ -350,22 +351,22 @@ class Trader(object):
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
 			print('TRADE: ', trade)
 			print('-------------------------------------------------------------------------------------------------------------\n')	
-			return
+			return trade
 			  
 
 		# probably some logic in here to determine how much we wanna buy
-		if(self.bc_r > .25 and self.usd_assets > self.usd_base and spread_r > 0.016):
-			volume = .250000
+		if(self.bc_r > .25 and self.usd_assets > self.usd_base and spread_r > 0.011):
+			volume = .350000
 			amount_usd = buyer_usd_b * float(volume)
 			amount = amount_usd/buyingMKT_price
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
 			print('TRADE: ', trade)
 			print('-------------------------------------------------------------------------------------------------------------\n')	
-			return
+			return trade
 		
 		# Same ol shit
-		if(self.bc_r > .10 and self.usd_assets > self.usd_base and spread_r > 0.013):
-			volume = .350000
+		if(self.bc_r > .10 and self.usd_assets > self.usd_base and spread_r >= 0.009):
+			volume = .250000
 			amount_usd = buyer_usd_b * float(volume)
 			amount = amount_usd/buyingMKT_price
 
@@ -376,10 +377,11 @@ class Trader(object):
 			trade = self.__makeTrade(ex_buy, ex_sell, ex_pair, amount, buyingMKT_price, sellingMKT_price)
 			print('TRADE: ', trade)
 			print('-------------------------------------------------------------------------------------------------------------\n')	
-			return
+			return trade
 
 		print('NO TRADE MADE -- Trade critera not met')
-		print('\n-------------------------------------------------------------------------------------------------------------\n')	
+		print('\n-------------------------------------------------------------------------------------------------------------\n')
+		return ( False, buyingMKT_price, sellingMKT_price)	
 
 
 
@@ -439,16 +441,7 @@ class Trader(object):
 
 			buy(buyer, amount, buying_price ,'BTC')
 			sell(seller, amount, selling_price ,'BTC')
-			return ((selling_price - buying_price) * amount) - total_fee
+			return ( True, (((selling_price - buying_price) * amount) - total_fee), buyer, seller, buying_price, selling_price, total_fee, sell)
 			# MAY WANT TO QUERY ACTUAL DATA FROM BUY AND SELL to get final profit.
 
-
-
-	def __makeBuy(exchange, amount, price):
-
-		buy(exchange, amount, 'BTC')
-
-	def __makeSell(exchange, amount, price):
-
-		sell(exchange, amount, 'BTC')
 

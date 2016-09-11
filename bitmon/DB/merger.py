@@ -8,7 +8,8 @@ def merge():
 	global db
 	with open(os.path.join(os.path.dirname(__file__),"master_db.json"),'r') as data_file:
 		db = json.load(data_file);
-	with open(os.path.join(os.path.dirname("/home/garritt/CODE/bitcoin/bit-mon/bitmon/DB/"),"KN_db.json"),'r') as data_file:
+	
+	with open(os.path.join(os.path.dirname("/Users/garritt/CODEDOG/bitcoin/bit-mon/bitmon/DB/"),"KN_db.json"),'r') as data_file:
 		KN_temp = json.load(data_file)
 		# print(json.dumps(CB_temp, indent=4, sort_keys=True))
 		KN_keys = list(KN_temp.keys())
@@ -42,7 +43,7 @@ def merge():
 							if time not in db["KRK"][key][date]:
 								db['KRK'][key][date][time] = KN_temp[key][date][time]
 
-	with open(os.path.join(os.path.dirname("/home/garritt/CODE/bitcoin/bit-mon/bitmon/DB/"),"CB_db.json"),'r') as data_file:
+	with open(os.path.join(os.path.dirname("/Users/garritt/CODEDOG/bitcoin/bit-mon/bitmon/DB/"),"CB_db.json"),'r') as data_file:
 		CB_temp = json.load(data_file)
 		# print(json.dumps(CB_temp, indent=4, sort_keys=True))
 		CB_keys = list(CB_temp.keys())
@@ -76,6 +77,37 @@ def merge():
 					for time in log:
 							if time not in db["COIN-BS"][key][date]:
 								db['COIN-BS'][key][date][time] = CB_temp[key][date][time]
+
+	with open(os.path.join(os.path.dirname("/Users/garritt/CODEDOG/bitcoin/bit-mon/bitmon/DB/"),"ITBT_db.json"),'r') as data_file:
+		CB_temp = json.load(data_file)
+		CB_keys = list(CB_temp.keys())
+		for key in CB_keys:
+			temp_keys = list(CB_temp[key].keys())
+			for date in temp_keys:
+				if date not in db["ITBT"][key] and key == "snapshots":
+					snap = list(CB_temp[key][date].keys())
+					db["ITBT"][key][date] = CB_temp[key][date]
+					for time in snap:
+						if time not in db["ITBT"][key][date]:
+							db['ITBT'][key][date][time] = CB_temp[key][date][time]
+				elif date in db["ITBT"][key] and key == "snapshots":
+					snap = list(CB_temp[key][date].keys())
+					for time in snap:
+						if time not in db["ITBT"][key][date]:
+							db['ITBT'][key][date][time] = CB_temp[key][date][time]
+
+				if date not in db["ITBT"][key] and key == "logs":
+					log = list(CB_temp[key][date].keys())
+					db["ITBT"][key][date] = CB_temp[key][date]
+						# print(temp_log_keys)
+					for time in log:
+						if time not in db["ITBT"][key][date]:
+							db['ITBT'][key][date][time] = CB_temp[key][date][time]
+				elif date in db["ITBT"][key] and key == "logs":
+					log = list(CB_temp[key][date].keys())
+					for time in log:
+							if time not in db["ITBT"][key][date]:
+								db['ITBT'][key][date][time] = CB_temp[key][date][time]
 
 					
 	with open(os.path.join(os.path.dirname(__file__),"master_db.json"),'w') as data_file:

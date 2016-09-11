@@ -125,6 +125,8 @@ class Daylog(object):
 			adjust_ratio = 1.00
 		elif self.exchange == 'KRK':
 			adjust_ratio = 1.00
+		elif self.exchange == 'ITBT':
+			adjust_ratio = .95
 	
 		# 576 entries for a day 
 		while entry_count <= 575: 

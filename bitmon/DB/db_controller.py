@@ -16,7 +16,10 @@ def initialize(exchange):
         with open(os.path.join(os.path.dirname(__file__),"KN_db.json"),'r') as data_file:
             global db
             db = json.load(data_file)
-    # print(json.dumps(db, indent=4, sort_keys=True))
+    elif exchange == 'ITBT':
+        with open(os.path.join(os.path.dirname(__file__),"ITBT_db.json"),'r') as data_file:
+            global db
+            db = json.load(data_file)
 
 
 
@@ -62,6 +65,13 @@ def writeOut(exchange):
         with open(os.path.join(os.path.dirname(__file__),"KN_db.json"),'w') as data_file:
             data_file.write(json.dumps(db, indent=4, sort_keys=True))
             print('written')
+    elif exchange == "ITBT":
+        with open(os.path.join(os.path.dirname(__file__),"ITBT_db.json"),'w') as data_file:
+            data_file.write(json.dumps(db, indent=4, sort_keys=True))
+            print('written')
+
+
+
     # with open(os.path.join(os.path.dirname(__file__),"db.json"),'w') as jsonFile:
     #     #print(json.dumps(db, indent=4, sort_keys=True))
     #     jsonFile.write(json.dumps(db, indent=4, sort_keys=True))
