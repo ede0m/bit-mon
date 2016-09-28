@@ -13,11 +13,10 @@ if __name__ == "__main__":
 
     	trade = make_us_some_fucking_money.trade_decision()
     	time.sleep(60)
-    	if count == 0 or count == 60 or trade[0] == True
-    	:
+    	if count == 0 or count == 60 or trade[0] == True:
     		server = smtplib.SMTP('smtp.gmail.com', 587)
     		server.starttls()
-    		server.login("cubone.btcballer@gmail.com", "PASSWORD")
+    		server.login("cubone.btcballer@gmail.com", "OGPokemon1995")
     		
     		if trade[0] == False:
     			msg = "\nNO TRADE MADE THIS HOUR:  \nBest Buying Price: " + str(trade[1]) + '\n Best Selling Price: ' + str(trade[2])
